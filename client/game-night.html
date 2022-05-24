@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Game Night</title>
+</head>
+<body class="body-home">
+    <header class="header-container">
+        <div class="header">
+            <img class="header-logo" src="D10-dice.webp">
+            <h1>GAME NIGHT</h1>
+        </div>
+        <div class="banner-container">
+            <button class="banner-btn" id="about-btn">About</button>
+            <button class="banner-btn" id="profile-btn">Profile</button>
+            <button class="banner-btn" id="log-in-btn">Log In</button>
+        </div>
+    </header>
+    <h1 id="game-list-h1">TABLE TOP</h1>
+    <div class="tabletop-container">
+        <div id="tabletop-table-image">
+            <!-- <img class="table-image" src="https://upload.wikimedia.org/wikipedia/en/a/a3/Catan-2015-boxart.jpg">
+            <img class="table-image" src="https://upload.wikimedia.org/wikipedia/en/a/a3/Catan-2015-boxart.jpg">
+            <img class="table-image" src="https://upload.wikimedia.org/wikipedia/en/a/a3/Catan-2015-boxart.jpg">
+            <img class="table-image" src="https://upload.wikimedia.org/wikipedia/en/a/a3/Catan-2015-boxart.jpg">
+            <img class="table-image" src="https://upload.wikimedia.org/wikipedia/en/a/a3/Catan-2015-boxart.jpg">
+            <img class="table-image" src="https://upload.wikimedia.org/wikipedia/en/a/a3/Catan-2015-boxart.jpg"> -->
+        </div>
+    </div>
+    <button class="clear-table-btn">Clear Table</button>
+    
+    <h1 id="game-list-h1">GAME LIST</h1>
+    <div class="orginization-tools">
+        <label for="game-sort">Sort By</label>
+        <select name="game-sort" id="game-sort">
+            <option value="title">Title</option>
+            <option value="genre">Genre</option>
+            <option value="publisher">Publisher</option>
+            <option value="year">Year</option>
+        </select>
+        <button type="button" id="sort-submit-btn">Sort</button>
+        <input type="search" placeholder="Search" class="game-search">
+    </div>
+    <container class="boardgame-list">
+    </container>
+
+    <div id="popup-bg">
+        <div id="popup-main-div">
+            <!-- <p id="javascript-magic">
+                This is the pop up text
+            </p>
+            <p id="javascript-desc">
+                Pop pup tutorial text
+            </p>
+            <div id="close-popup-div" title="Close Menu" onclick="closePopupMenu()">
+                <p>
+                    X
+                </p>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="accordion">
+        <button type="button" class="accordion_button">Expand Content</button>
+        <div class="accordion_content">
+            <form><br>
+                <input type="text" placeholder="request game here">
+            </form><br>
+        </div><br>
+    </div>
+    <footer>
+
+    </footer>
+<script src="../node_modules/axios/dist/axios.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
