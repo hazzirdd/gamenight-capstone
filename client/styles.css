@@ -349,6 +349,8 @@ html {
 	justify-content: center;
 	align-items: stretch;
 	align-content: stretch;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .about-graphic {
