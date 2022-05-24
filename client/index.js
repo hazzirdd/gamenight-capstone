@@ -186,7 +186,12 @@ let tableFull = true
 console.log('hello!')
 
 const addToTable = (id) => {
-
+    
+    if (tableFull === true) {
+        alert('You can only add 6 games to the table')
+        return tableFull === true
+    } else {
+        
     axios.get(`/api/counter`)
     .then((res) => {
         let count = res.data[0].count
@@ -208,10 +213,6 @@ const addToTable = (id) => {
                 image: game.image
             }
             
-            if (tableFull === true) {
-                alert('You can only add 6 games to the table')
-                return tableFull === true
-            } else {
 
                 axios.post(`/api/table`, bodyObj)
                 .then((res) => {
@@ -220,9 +221,9 @@ const addToTable = (id) => {
                     closePopupMenu()
                     document.location.reload(true);
                 })
-            }
+            })
         })
-    })
+    }
 }
 
 const displayTableGames = () => {
