@@ -352,7 +352,7 @@ html {
 }
 
 .about-graphic {
-    position:absolute;
+    position:block;
     width: 5in;
     align-items: center;
     justify-content: center;
