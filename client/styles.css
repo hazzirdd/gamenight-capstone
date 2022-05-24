@@ -338,14 +338,17 @@ html {
 
 .about-text {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    align-items:center;
+    align-items: center;
     justify-content: center;
 }
 
 .about-graphic-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: stretch;
+	align-content: stretch;
 }
 
 .about-graphic {
