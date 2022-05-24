@@ -3,7 +3,8 @@ const Sequelize = require('sequelize')
 
 // const {CONNECTION_STRING} = process.env;
 
-const sequelize = new Sequelize(process.env.CONNECTION_STRING, {
+const sequelize = new Sequelize(`postgres://pvontandipaiyq:9f194c4d74f76fb0b02558fb65f97599ffedffcde14ada501a4e2d3d27740ee6@ec2-54-80-123-146.compute-1.amazonaws.com:5432/d8htoujljp95ga
+`, {
     dialect:'postgres',
     dialectOptions: {
         ssl: {
