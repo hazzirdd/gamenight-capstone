@@ -12,9 +12,9 @@ app.use(express.static(path.join(__dirname, '../client')))
 
 
 // ENDPOINTS
-// app.get("/js", (req, res) => {
-//   res.sendFile(path.join(__dirname, '../client/index.js'))
-// })
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/game-night.html'))
+})
 
 const {getBoardgames, createPopUp, sortByTitle, sortByGenre, sortByPublisher, sortByYear, clearTable, addToTable, getTableTopGames, tableCounter} = require('./controller.js')
 
