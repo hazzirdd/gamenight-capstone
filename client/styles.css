@@ -86,6 +86,7 @@ html {
     background-position:center;
     align-items: center;
     justify-content: center;
+    overflow:hidden;
 }
 
 .table-image {
