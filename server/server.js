@@ -8,13 +8,14 @@ const cors = require('cors')
 app.use(express.json())
 app.use(cors())
 
-app.use(express.static(path.join(__dirname, '../client')))
+app.use(express.static(path.join(__dirname, '/client')))
 
-app.get("/js", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/index.js"))
-})
 
 // ENDPOINTS
+app.get("/js", (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/index.js'))
+})
+
 const {getBoardgames, createPopUp, sortByTitle, sortByGenre, sortByPublisher, sortByYear, clearTable, addToTable, getTableTopGames, tableCounter} = require('./controller.js')
 
 
