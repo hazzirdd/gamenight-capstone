@@ -324,11 +324,12 @@ html {
 
 /* ABOUT */
 .about-text-container {
+    position: absolute;
     display: flex;
     align-items:center;
     justify-content: center;
     width: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.5);
     padding: 15px;
 }
 
@@ -343,6 +344,7 @@ html {
 }
 
 .about-graphic {
+    position:absolute;
     width: 5in;
     align-items: center;
     justify-content: center;
