@@ -182,7 +182,7 @@ const openPopupMenu = (id) => {
 //     })
 // }
 
-let tableFull = true
+let tableFull = false
 console.log('hello!')
 
 const addToTable = (id) => {
@@ -191,7 +191,7 @@ const addToTable = (id) => {
         alert('You can only add 6 games to the table')
         return tableFull === true
     } else {
-        
+
     axios.get(`/api/counter`)
     .then((res) => {
         let count = res.data[0].count
