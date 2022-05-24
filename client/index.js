@@ -182,7 +182,7 @@ const openPopupMenu = (id) => {
 //     })
 // }
 
-let tableFull = false
+let tableFull = true
 
 const addToTable = (id) => {
 
@@ -190,7 +190,6 @@ const addToTable = (id) => {
     .then((res) => {
         let count = res.data[0].count
         if (count >= 6) {
-            alert('You can only add 6 games to the table')
             return tableFull = true
         } else {
             // alert(`Table now as ${count} games`)
@@ -207,8 +206,9 @@ const addToTable = (id) => {
                 title: game.title,
                 image: game.image
             }
-
+            
             if (tableFull === true) {
+                alert('You can only add 6 games to the table')
                 return tableFull === true
             } else {
 
