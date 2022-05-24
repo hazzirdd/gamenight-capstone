@@ -6,10 +6,10 @@ const sortSubmitBtn = document.querySelector('#sort-submit-btn');
 const tableTop = document.querySelector('#tabletop-table-image');
 const clearTableButton = document.querySelector('.clear-table-btn');
 
-const baseURL = `https://gamenight-with-haz.herokuapp.com/api/boardgames`
+const baseURL = `/api/boardgames`
 
 const getBoardgames = () => {
-    axios.get(`https://gamenight-with-haz.herokuapp.com/api/boardgames`)
+    axios.get(`/api/boardgames`)
     .then(res => {
         // console.log(res.data)
         addGameToTable(res.data)
@@ -22,7 +22,7 @@ const getBoardgames = () => {
 const displayGames = () => {
     boardgameList.innerHTML = ''
     
-    axios.get(`https://gamenight-with-haz.herokuapp.com/api/boardgames`)
+    axios.get(`/api/boardgames`)
     .then(res => {
         res.data.forEach(game => {
             let gameCard = `
