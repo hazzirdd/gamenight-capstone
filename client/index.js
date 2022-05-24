@@ -9,7 +9,7 @@ const clearTableButton = document.querySelector('.clear-table-btn');
 const baseURL = `/api/boardgames`
 
 const getBoardgames = () => {
-    axios.get(`${baseURL}`)
+    axios.get(`/api/boardgames`)
     .then(res => {
         // console.log(res.data)
         addGameToTable(res.data)
