@@ -189,10 +189,10 @@ const addToTable = (id) => {
     axios.get(`/api/counter`)
     .then((res) => {
         let count = res.data[0].count
-        if (count >= 6) {
+        if (count = 6) {
             return tableFull = true
         } else {
-            // alert(`Table now as ${count} games`)
+            alert(`Table now as ${count} games`)
         }
     })
     
