@@ -182,7 +182,8 @@ const openPopupMenu = (id) => {
 //     })
 // }
 
-let tableFull = false
+Boolean(tableTop)
+console.log('hello!')
 
 const addToTable = (id) => {
 
@@ -198,11 +199,6 @@ const addToTable = (id) => {
     
     console.log(tableFull)
     
-    if (tableFull === true) {
-        alert('You can only add 6 games to the table')
-        return tableFull === true
-    } else {
-
     axios.get(`/api/popup/${id}`)
     .then((res) => {
         res.data.forEach(game => {
@@ -212,6 +208,10 @@ const addToTable = (id) => {
                 image: game.image
             }
             
+            if (tableFull === true) {
+                alert('You can only add 6 games to the table')
+                return tableFull === true
+            } else {
 
                 axios.post(`/api/table`, bodyObj)
                 .then((res) => {
@@ -220,9 +220,9 @@ const addToTable = (id) => {
                     closePopupMenu()
                     document.location.reload(true);
                 })
-            })
+            }
         })
-    }
+    })
 }
 
 const displayTableGames = () => {
@@ -269,7 +269,6 @@ document.querySelectorAll('.accordion_button').forEach(button => {
             axios.delete(`/api/tabletop/${id}`)
             .then((res) => {
                 tableFull = false
-                console.log(tableFull)
                 document.location.reload(true);
             })
         }
