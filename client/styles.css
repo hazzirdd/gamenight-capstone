@@ -52,6 +52,7 @@ html {
     font-size: 20px;
     cursor: pointer;
     transition: .5s;
+    text-decoration: none;
 }
 
 .banner-btn:hover {
@@ -319,3 +320,25 @@ html {
       display: none;
       overflow: auto;
   }
+
+
+/* ABOUT */
+.about-text-container {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+
+.about-text {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.about-graphic-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-graphic {
+    width: 5in;
+}
