@@ -190,15 +190,13 @@ const addToTable = (id) => {
     if (tableFull === true) {
         alert('You can only add 6 games to the table')
         return tableFull === true
-    } else {
+    } 
 
     axios.get(`/api/counter`)
     .then((res) => {
         let count = res.data[0].count
-        if (count === 6) {
+        if (count >= 6) {
             return tableFull = true
-        } else {
-            alert(`Table now as ${count} games`)
         }
     })
     
@@ -223,7 +221,6 @@ const addToTable = (id) => {
                 })
             })
         })
-    }
 }
 
 const displayTableGames = () => {
