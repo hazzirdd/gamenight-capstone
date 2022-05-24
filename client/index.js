@@ -63,7 +63,7 @@ const sortBy = () => {
                     })
         })
     } else if (gameSort.value === 'genre') {
-        axios.get(`http://localhost:8080/api/sortbygenre`)
+        axios.get(`/api/sortbygenre`)
         .then(res => {
             res.data.forEach(game => {
                 let gameCard = `
@@ -78,7 +78,7 @@ const sortBy = () => {
                     })
         })
     } else if (gameSort.value === 'publisher') {
-        axios.get(`http://localhost:8080/api/sortbypublisher`)
+        axios.get(`/api/sortbypublisher`)
         .then(res => {
             res.data.forEach(game => {
                 let gameCard = `
@@ -93,7 +93,7 @@ const sortBy = () => {
                     })
         })
     } else if (gameSort.value === 'year') {
-        axios.get(`http://localhost:8080/api/sortbyyear`)
+        axios.get(`/api/sortbyyear`)
         .then(res => {
             res.data.forEach(game => {
                 let gameCard = `
@@ -115,7 +115,7 @@ const openPopupMenu = (id) => {
 
     popupMainDiv.innerHTML = ''
     
-    axios.get(`http://localhost:8080/api/popup/${id}`)
+    axios.get(`/api/popup/${id}`)
     .then((res) => {
         res.data.forEach(game => {
 
@@ -186,7 +186,7 @@ let tableFull = false
 
 const addToTable = (id) => {
 
-    axios.get(`http://localhost:8080/api/counter`)
+    axios.get(`/api/counter`)
     .then((res) => {
         let count = res.data[0].count
         if (count >= 6) {
@@ -199,7 +199,7 @@ const addToTable = (id) => {
     
     console.log(tableFull)
     
-    axios.get(`http://localhost:8080/api/popup/${id}`)
+    axios.get(`/api/popup/${id}`)
     .then((res) => {
         res.data.forEach(game => {
             let bodyObj = {
@@ -212,7 +212,7 @@ const addToTable = (id) => {
                 return tableFull === true
             } else {
 
-                axios.post(`http://localhost:8080/api/table`, bodyObj)
+                axios.post(`/api/table`, bodyObj)
                 .then((res) => {
 
 
@@ -227,7 +227,7 @@ const addToTable = (id) => {
 const displayTableGames = () => {
     tableTop.innerHTML = ''
 
-    axios.get(`http://localhost:8080/api/tabletop`)
+    axios.get(`/api/tabletop`)
     .then((res) => {
         res.data.forEach(game => {
             let tableGame = `
@@ -265,7 +265,7 @@ document.querySelectorAll('.accordion_button').forEach(button => {
         
         
         const clearTable = (id) => {
-            axios.delete(`http://localhost:8080/api/tabletop/${id}`)
+            axios.delete(`/api/tabletop/${id}`)
             .then((res) => {
                 tableFull = false
                 document.location.reload(true);
