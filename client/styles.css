@@ -328,7 +328,8 @@ html {
     align-items:center;
     justify-content: center;
     width: 50%;
-    background-color: #6E6E6E;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 15px;
 }
 
 .about-text {
@@ -343,4 +344,6 @@ html {
 
 .about-graphic {
     width: 5in;
+    align-items: center;
+    justify-content: center;
 }
