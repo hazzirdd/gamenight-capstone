@@ -22,7 +22,7 @@ const getBoardgames = () => {
 const displayGames = () => {
     boardgameList.innerHTML = ''
     
-    axios.get(baseURL)
+    axios.get(`/api/boardgames`)
     .then(res => {
         res.data.forEach(game => {
             let gameCard = `
