@@ -182,7 +182,7 @@ const openPopupMenu = (id) => {
 //     })
 // }
 
-Boolean(tableFull)
+let tableFull = true
 console.log('hello!')
 
 const addToTable = (id) => {
