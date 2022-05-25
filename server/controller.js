@@ -151,7 +151,26 @@ module.exports = {
     },
 
     requestGame: (req, res) => {
-        console.log(req.body)
+        const { requestTitle, requestee } = req.body
+
+        sequelize.query(`
+        INSERT INTO game_requests (title, requestee)
+        VALUES ('${requestTitle}', '${requestee}')
+        `)
+
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0])
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    },
+
+    getRequests: (req, res) => {
+        sequelize.query(`
+        SELECT * FROM game_requests
+        ORDER BY title ASC
+        `)
         .then((dbRes) => {
             res.status(200).send(dbRes[0])
         })

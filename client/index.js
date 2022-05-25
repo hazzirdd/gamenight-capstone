@@ -6,7 +6,9 @@ const sortSubmitBtn = document.querySelector('#sort-submit-btn');
 const tableTop = document.querySelector('#tabletop-table-image');
 const clearTableButton = document.querySelector('.clear-table-btn');
 const gameRequestInput = document.querySelector('.game-request-input');
+const gameRequesteeInput = document.querySelector('.game-requestee-input');
 const gameRequestBtn = document.querySelector('.game-request-btn');
+const gameRequestContainer = document.querySelector('.game-request-container');
 
 const baseURL = `/api/boardgames`
 
@@ -281,15 +283,58 @@ const goToHome = (that) => {
 }
 
 const requestGame = () => {
-    requestTitle = gameRequestInput.value;
-    axios.post(`/api/request`, requestTitle)
+    bodyObj = {
+    requestTitle: gameRequestInput.value,
+    requestee: gameRequesteeInput.value
+    }
+
+    axios.post(`/api/request`, bodyObj)
     .then((res) => {
         console.log(res)
+        document.location.reload(true);
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+}
+
+//NOT IN USE
+// const getRequests = () => {
+//     axios.get(`http://localhost:8080/api/request`)
+//     .then((res) => {
+//         displayRequests(res.data)
+//     })
+//     .catch((err) => {
+//         console.log(err)
+//     })
+// }
+
+const displayRequests = () => {
+    axios.get(`/api/request`)
+    .then((res) => {
+        res.data.forEach((request) => {
+            console.log(request.title)
+            // gameRequestContainer.innerHTML = ''
+
+            requestCard = `
+            <p>
+            <span class="requestee-text">${request.requestee}</span>
+            requested 
+            <span class="request-title-text">${request.title}</span>
+            </p><br>
+            `
+
+            gameRequestContainer.innerHTML += requestCard
+        })
+    })
+    .catch((err) => {
+        console.log(err)
     })
 }
 
 displayGames();
 displayTableGames();
+displayRequests();
 
 sortSubmitBtn.addEventListener('click', sortBy);
 clearTableButton.addEventListener('click', clearTable);

@@ -151,16 +151,16 @@ html {
 #game-sort {
     background-color:rgb(215, 236, 248);
     font-size: 15px;
-    width: 67px;
-    height: 40px;
+    width: fit-content;
+    height: 36px;
     border-radius: 3px;
 }
 
 #sort-submit-btn {
     background-color:rgb(107, 180, 223);
     font-size: 15px;
-    width: 60px;
-    height: 40px;
+    width: fit-content;
+    height: 36px;
     border-radius: 4px;
     transition: .3s;
 }
@@ -256,7 +256,7 @@ html {
 
 #popup-main-div {
     position: fixed;
-    width: 800px;
+    width: 50vw;
     height: 500px;
     border: 2px solid black;
     border-radius: 5px;
@@ -385,6 +385,15 @@ html {
 
       display: none;
       overflow: auto;
+  }
+
+  .requestee-text {
+    font-weight: bold;
+}
+
+.request-title-text {
+    font-style: italic;
+    color:rgb(197, 54, 54);
   }
 
 
