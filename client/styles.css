@@ -103,7 +103,6 @@ html {
     display: block;
     width: 1.8in;
     height: 1.8in;
-    cursor: pointer;
     border-radius: 5px;
     object-fit:scale-down;
 }
