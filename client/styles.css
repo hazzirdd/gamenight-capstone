@@ -417,3 +417,19 @@ html {
     width: 45vw;
 
 }
+
+.underconstruction-graphic-container {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: .5in;
+    margin-bottom: .5in;
+}
+
+.underconstruction-graphic {
+    width: 50vw;
+    border: 14px solid orange;
+    border-radius: 30px;
+}
