@@ -279,7 +279,7 @@ document.querySelectorAll('.accordion_button').forEach(button => {
         }
 
 const goToHome = (that) => {
-    window.open('game-night.html')
+    window.location.replace('game-night.html')
 }
 
 const requestGame = () => {
@@ -313,7 +313,6 @@ const displayRequests = () => {
     axios.get(`/api/request`)
     .then((res) => {
         res.data.forEach((request) => {
-            console.log(request.title)
             // gameRequestContainer.innerHTML = ''
 
             requestCard = `
@@ -332,13 +331,15 @@ const displayRequests = () => {
     })
 }
 
+
 displayGames();
 displayTableGames();
 displayRequests();
 
 sortSubmitBtn.addEventListener('click', sortBy);
 clearTableButton.addEventListener('click', clearTable);
-gameRequestBtn.addEventListener('click', requestGame)
+gameRequestBtn.addEventListener('click', requestGame);
+
 
 
 //NOTES FOR RETURN ON TUESDAY

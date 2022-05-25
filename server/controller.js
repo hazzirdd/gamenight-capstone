@@ -177,5 +177,33 @@ module.exports = {
         .catch((err) => {
             console.log(err)
         })
+    },
+
+    loginCheck: (req, res) => {
+        sequelize.query(`
+        SELECT * FROM gamenight_users
+        `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0]);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    },
+
+    createUser: (req, res) => {
+
+        const {username, password} = req.body
+
+        sequelize.query(`
+        INSERT INTO gamenight_users(username, password)
+        VALUES ('${username}', '${password}')
+        `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0]);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
     }
 }

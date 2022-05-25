@@ -256,15 +256,14 @@ html {
 
 #popup-main-div {
     position: fixed;
-    width: 50vw;
-    min-width: 200px;
+    width: 800px;
     height: 500px;
     border: 2px solid black;
     border-radius: 5px;
     background-image: url(WoodBackground.jpeg) ;
     left:50%;
-    top: 50%;
     margin-left: -400px;
+    top: 50%;
     margin-top: -250px;
 }
 
@@ -446,4 +445,41 @@ html {
     width: 50vw;
     border: 14px solid orange;
     border-radius: 30px;
+}
+
+/* LOG IN */
+
+.login-tools-main-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2in;
+    padding-top:1.5in;
+    padding-bottom:3in;
+}
+
+.login-tools-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: .3in 1in 1in 1in;
+    border: 2px solid black;
+    border-radius: 9px;
+}
+
+.login-tools {
+    display: flex;
+    justify-content: space-around;
+    flex-direction:column;
+    align-items: center;
+}
+
+/* SIGN UP */
+
+.text-h2 {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 35px;
+    padding-bottom:25px;
 }
