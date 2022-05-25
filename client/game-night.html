@@ -29,7 +29,7 @@
     </div>
     <h1 id="game-list-h1">GAME LIST</h1>
     <div class="orginization-tools">
-        <label for="game-sort">Sort By</label>
+        <label id="game-sort-title" for="game-sort">Sort By:</label>
         <select name="game-sort" id="game-sort">
             <option value="title">Title</option>
             <option value="genre">Genre</option>
@@ -37,8 +37,9 @@
             <option value="year">Year</option>
         </select>
         <button type="button" id="sort-submit-btn">Sort</button>
-        <input type="search" placeholder="Search" class="game-search">
+        <!-- <input type="search" placeholder="Search" class="game-search"> -->
     </div>
+
     <container class="boardgame-list">
     </container>
 

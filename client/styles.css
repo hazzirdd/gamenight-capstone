@@ -131,9 +131,41 @@ html {
 
 .orginization-tools {
     font-size: 20px;
-    margin-left: 1.5in;
-    margin-right: 60vw;
-    background-color: rgba(124, 124, 124, 0.3)
+    background-color: rgba(124, 124, 124, 0.3);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 0.3in;
+    margin-left: 39%;
+    margin-right: 39%;
+    padding: 9px;
+    border-radius: 4px;
+}
+
+/* #game-sort-title {
+
+} */
+
+#game-sort {
+    background-color:rgb(215, 236, 248);
+    font-size: 15px;
+    width: 67px;
+    height: 40px;
+    border-radius: 3px;
+}
+
+#sort-submit-btn {
+    background-color:rgb(107, 180, 223);
+    font-size: 15px;
+    width: 60px;
+    height: 40px;
+    border-radius: 4px;
+    transition: .3s;
+}
+
+#sort-submit-btn:hover {
+    background-color: rgb(147, 204, 236);
+    transform: scale(1.1);
 }
 
 .boardgame-list {
