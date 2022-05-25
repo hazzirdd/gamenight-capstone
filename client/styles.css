@@ -257,13 +257,14 @@ html {
 #popup-main-div {
     position: fixed;
     width: 50vw;
+    min-width: 200px;
     height: 500px;
     border: 2px solid black;
     border-radius: 5px;
     background-image: url(WoodBackground.jpeg) ;
     left:50%;
-    margin-left: -400px;
     top: 50%;
+    margin-left: -400px;
     margin-top: -250px;
 }
 
