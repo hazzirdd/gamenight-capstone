@@ -148,5 +148,15 @@ module.exports = {
         .catch((err) => {
             console.log(err)
         })
+    },
+
+    requestGame: (req, res) => {
+        console.log(req.body)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0])
+        })
+        .catch((err) => {
+            console.log(err)
+        })
     }
 }

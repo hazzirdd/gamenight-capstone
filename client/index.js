@@ -5,6 +5,8 @@ const gameSort = document.querySelector('#game-sort');
 const sortSubmitBtn = document.querySelector('#sort-submit-btn');
 const tableTop = document.querySelector('#tabletop-table-image');
 const clearTableButton = document.querySelector('.clear-table-btn');
+const gameRequestInput = document.querySelector('.game-request-input');
+const gameRequestBtn = document.querySelector('.game-request-btn');
 
 const baseURL = `/api/boardgames`
 
@@ -155,7 +157,6 @@ const openPopupMenu = (id) => {
 }
     
 
-//LEFT OFF HERE 5/23
 
 //I want to use this function below to enter the boardgame_id onto the tabletop, that works. 
 // Next I want to call a new function within addGameToTable, addGameImagetoTable perhaps.
@@ -183,7 +184,6 @@ const openPopupMenu = (id) => {
 // }
 
 let tableFull = false
-console.log('hello!')
 
 const addToTable = (id) => {
     
@@ -280,11 +280,17 @@ const goToHome = (that) => {
     window.open('game-night.html')
 }
 
+const requestGame = () => {
+    requestTitle = gameRequestInput.value;
+    axios.post(`api/request`, requestTitle)
+}
+
 displayGames();
 displayTableGames();
 
 sortSubmitBtn.addEventListener('click', sortBy);
-clearTableButton.addEventListener('click', clearTable)
+clearTableButton.addEventListener('click', clearTable);
+gameRequestBtn.addEventListener('click', requestGame)
 
 
 //NOTES FOR RETURN ON TUESDAY
