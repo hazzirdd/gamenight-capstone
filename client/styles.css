@@ -217,7 +217,7 @@ html {
     opacity: 0;
 }
     
-.game-image-button:hover {
+/* .game-image-button:hover {
     opacity: 1;
     transform: scale(1);
     transition: .5s;
@@ -231,7 +231,7 @@ html {
     font-weight: bolder;
     color:rgb(107, 180, 223);
     text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.75);
-}
+} */
 
 .game-image:hover{
     border: 3px solid rgba(0, 0, 0, 0.75);
