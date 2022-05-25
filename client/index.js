@@ -27,7 +27,7 @@ const displayGames = () => {
         res.data.forEach(game => {
             let gameCard = `
             <div class="game-card" class="game-card-grid">
-                <img onclick="openPopupMenu(${game.boardgame_id})" class="game-image" src='${game.image}'>
+                <img onclick="openPopupMenu(${game.boardgame_id})" class="game-image" src='${game.image}' alt="${game.title}">
 
                     <div class="game-info-box"></div>
             </div>
@@ -53,7 +53,7 @@ const sortBy = () => {
             res.data.forEach(game => {
                 let gameCard = `
                 <div class="game-card">
-                    <img onclick="openPopupMenu(${game.boardgame_id})" class="game-image" src='${game.image}'>
+                    <img onclick="openPopupMenu(${game.boardgame_id})" class="game-image" src='${game.image}' alt="${game.title}">
                     <button onclick="openPopupMenu(${game.boardgame_id})" class="game-image-button">${game.title}</button>
                         <div class="game-info-box"></div>
                 </div>
@@ -68,7 +68,7 @@ const sortBy = () => {
             res.data.forEach(game => {
                 let gameCard = `
                 <div class="game-card">
-                    <img onclick="openPopupMenu(${game.boardgame_id})" class="game-image" src='${game.image}'>
+                    <img onclick="openPopupMenu(${game.boardgame_id})" class="game-image" src='${game.image}' alt="${game.title}">
                     <button onclick="openPopupMenu(${game.boardgame_id})" class="game-image-button">${game.title}</button>
                         <div class="game-info-box"></div>
                 </div>
@@ -83,7 +83,7 @@ const sortBy = () => {
             res.data.forEach(game => {
                 let gameCard = `
                 <div class="game-card">
-                    <img onclick="openPopupMenu(${game.boardgame_id})" class="game-image" src='${game.image}'>
+                    <img onclick="openPopupMenu(${game.boardgame_id})" class="game-image" src='${game.image}' alt="${game.title}">
                     <button onclick="openPopupMenu(${game.boardgame_id})" class="game-image-button">${game.title}</button>
                         <div class="game-info-box"></div>
                 </div>
@@ -98,7 +98,7 @@ const sortBy = () => {
             res.data.forEach(game => {
                 let gameCard = `
                 <div class="game-card">
-                    <img onclick="openPopupMenu(${game.boardgame_id})" class="game-image" src='${game.image}'>
+                    <img onclick="openPopupMenu(${game.boardgame_id})" class="game-image" src='${game.image}' alt="${game.title}">
                     <button onclick="openPopupMenu(${game.boardgame_id})" class="game-image-button">${game.title}</button>
                         <div class="game-info-box"></div>
                 </div>
@@ -276,7 +276,7 @@ document.querySelectorAll('.accordion_button').forEach(button => {
             })
         }
 
-const goToHome = () => {
+const goToHome = (that) => {
     window.open('game-night.html')
 }
 
