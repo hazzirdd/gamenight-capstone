@@ -106,6 +106,29 @@ html {
     object-fit:scale-down;
 }
 
+.clear-table-btn-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5in;
+}
+
+.clear-table-btn {
+    background-color:rgb(107, 180, 223);
+    width: 1.5in;
+    height: .6in;
+    border-radius: 9px;
+    cursor: pointer;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    transition: .4s;
+}
+
+.clear-table-btn:hover {
+    background-color: rgb(147, 204, 236);
+    transform: scale(1.1);
+}
+
 .orginization-tools {
     font-size: 20px;
     margin-left: 1.5in;
@@ -288,7 +311,7 @@ html {
 }
 
 .add-to-table-button:hover {
-    transform: scale(1);
+    transform: scale(1.1);
 }
 
   .accordion_button {
