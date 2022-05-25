@@ -20,7 +20,7 @@ module.exports = {
         // console.log(req.params)
         sequelize.query(`
         SELECT * FROM boardgames
-        ORDER BY title DESC
+        ORDER BY title ASC
         `)
         .then((dbRes) => {
             res.status(200).send(dbRes[0]);
