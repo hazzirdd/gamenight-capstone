@@ -276,6 +276,10 @@ document.querySelectorAll('.accordion_button').forEach(button => {
             })
         }
 
+const goToHome = () => {
+    window.open('game-night.html')
+}
+
 displayGames();
 displayTableGames();
 
