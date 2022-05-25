@@ -153,6 +153,26 @@ const openPopupMenu = (id) => {
         }) 
     })
 }
+
+const sortByTitle = () => {
+    boardgameList.innerHTML = ''
+
+    axios.get(`/api/sortbytitle`)
+    .then((res) => {
+        res.data.forEach(game => {
+            let gameCard = `
+            <div class="game-card">
+                <img onclick="openPopupMenu(${game.boardgame_id})" class="game-image" src='${game.image}'>
+                <button onclick="openPopupMenu(${game.boardgame_id})" class="game-image-button">${game.title}</button>
+                    <div class="game-info-box"></div>
+            </div>
+                    `
+                        
+                    boardgameList.innerHTML += gameCard
+        })
+    })
+}
+
     
 
 //LEFT OFF HERE 5/23
@@ -278,6 +298,7 @@ document.querySelectorAll('.accordion_button').forEach(button => {
 
 displayGames();
 displayTableGames();
+sortByTitle();
 
 sortSubmitBtn.addEventListener('click', sortBy);
 clearTableButton.addEventListener('click', clearTable)
