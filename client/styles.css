@@ -87,10 +87,10 @@ html {
     grid-template-columns: 2in 2in 2in;
     grid-template-rows: 2in;
     position: absolute;
-    width: 60vw;
-    height: 45vh;
+    width: 7in;
+    height: 4in;
     background-image: url(tabletop.jpg);
-    background-size: cover;
+    background-position:center;
     align-items: center;
     justify-content: center;
     overflow:hidden;
