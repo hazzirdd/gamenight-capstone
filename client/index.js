@@ -283,6 +283,9 @@ const goToHome = (that) => {
 const requestGame = () => {
     requestTitle = gameRequestInput.value;
     axios.post(`/api/request`, requestTitle)
+    .then((res) => {
+        console.log(res)
+    })
 }
 
 displayGames();
