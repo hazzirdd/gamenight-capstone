@@ -33,11 +33,13 @@ html {
     position:absolute;
     top: 0px;
     left: 70px;
+    cursor: pointer;
 }
 
 .header-logo {
     width: 1in;
     object-fit:cover;
+    cursor: pointer;
 }
 
 .banner-container {
