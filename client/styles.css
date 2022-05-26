@@ -9,6 +9,16 @@ html {
     background-color: #C9DDEC;
 }
 
+.background-circle-container {
+    display: flex;
+}
+
+.background-circle {
+    position: absolute;
+    top: 78vh;
+    z-index: -1;
+}
+
 .header-container {
     display: flex;
     color: white;
@@ -281,7 +291,7 @@ html {
 #popup-main-div {
     position: fixed;
     width: 800px;
-    height: 500px;
+    height: 550px;
     border: 2px solid black;
     border-radius: 5px;
     background-image: url('https://media.istockphoto.com/photos/dark-green-wool-velvet-texture-background-picture-id1153876379?k=20&m=1153876379&s=612x612&w=0&h=oRz6uBQB9aiuYvosgnIVEaht1he0rlWqSVG06G0Rr-U=') ;
@@ -377,20 +387,62 @@ html {
     object-fit: scale-down;
 } */
 
+.expansions-in-popup-container {
+    height: 1in;
+    position: absolute;
+    bottom: 3%;
+    left: 7.5%;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.expansions-in-popup {
+    width: 1in;
+    height: 1in;
+    position: relative;
+    object-fit: fill;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    /* transition: 4s; */
+}
+
+.expansions-in-popup:hover {
+    transform: scale(4);
+    bottom: 2in;
+    left: 2in;
+    z-index:6;
+}
+
 /* ORIGINAL */
 .info-container {
     display: flex;
     flex-direction: column;
-    position:relative;
-    left: 430px;
+    position: relative;
+    left: 405px;
     bottom: 120px;
     font-size: 25px;
     font-weight: bold;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding-left: 10px;
     padding-right: 10px;
     background-color: rgba(255, 255, 255, 0.3);
-    width:fit-content;
+    width: 3in;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.info-container-ex {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 405px;
+    bottom: 47px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 3in;
+    text-align: center;
     border: 1px solid black;
 }
 
@@ -429,12 +481,16 @@ html {
 .add-to-table-button-container-ex {
     display: flex;
     position: absolute;
-    left: 75%;
-    bottom: 40%;
+    left: 62%;
+    bottom: 53%;
 }
 
 .add-to-table-button:hover {
     transform: scale(1.1);
+}
+
+.accordion {
+    z-index: 5;
 }
 
   .accordion_button {

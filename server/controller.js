@@ -117,7 +117,7 @@ module.exports = {
         const {id, image} = req.body
 
         sequelize.query(`
-        INSERT INTO tabletop (boardgame_id, tabletop_image)
+        INSERT INTO tabletop (boardgame_id, tabletop_boardgame_image)
         VALUES (${id}, '${image}')
         `)
         .then((dbRes) => {
@@ -154,14 +154,12 @@ module.exports = {
     },
     
     removeTableGame: (req, res) => {
-        const {id} = req.params
-
-        console.log(id)
+        const {image} = req.body
 
         sequelize.query(`
         DELETE
         FROM tabletop
-        WHERE boardgame_id=${id}
+        WHERE tabletop_boardgame_image='${image}'
         `)
         .then((dbRes) => {
             res.status(200).send(dbRes[0]);
@@ -243,13 +241,76 @@ module.exports = {
     getExpansions: (req, res) => {
         sequelize.query(`
         SELECT * FROM expansions
-        ORDER BY title ASC
+        ORDER BY expansion_title ASC
         `)
         .then((dbRes) => {
             res.status(200).send(dbRes[0]);
         })
         .catch((err) => {
             console.log(err);
+        })
+    },
+
+    getExpansionsId: (req, res) => {
+        const {id} = req.params
+        sequelize.query(`
+        SELECT * FROM expansions
+        WHERE boardgame_id = ${id}
+        `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0]);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    },
+
+    getOneBoardgame: (req, res) => {
+        const {boardgame_id} = req.body
+        console.log(`****Grabing Boardgame with ID: ${boardgame_id}`)
+        sequelize.query(`
+        SELECT * FROM boardgames
+        WHERE boardgame_id = ${boardgame_id}
+        `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0])
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    },
+
+    getOneExpansion: (req, res) => {
+        const {expansion_id} = req.body
+        console.log(`****Grabing Expansion with ID: ${expansion_id}`)
+
+        sequelize.query(`
+        SELECT * FROM expansions
+        WHERE expansion_id = ${expansion_id}
+        `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0])
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    },
+
+    addPackToTable: (req, res) => {
+        const {boardgame_id, boardgame_image, expansion_id, expansion_image} = req.body
+        
+        console.log(boardgame_id, expansion_id)
+
+        // sequelize.query(`
+        // INSERT INTO tabletop (boardgame_id, tabletop_boardgame_image, expansion_id, tabletop_expansion_image)
+        // VALUES (${boardgame_id}, '${boardgame_image}'),
+        // (${expansion_id}, '${expansion_image}')
+        // `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0])
+        })
+        .catch((err) => {
+            console.log(err)
         })
     }
 }

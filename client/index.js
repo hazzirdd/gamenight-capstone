@@ -51,10 +51,9 @@ const displayExpansions = () => {
     axios.get(`/api/expansions`)
     .then(res => {
         res.data.forEach(expansion => {
-            console.log(expansion.expansion_id)
             let gameCard = `
             <div class="game-card" class="game-card-grid">
-                <img onclick="openPopupMenuEx(${expansion.expansion_id})" class="expansion-image" src='${expansion.image}' alt="${expansion.title}">
+                <img onclick="openPopupMenuEx(${expansion.expansion_id})" class="expansion-image" src='${expansion.expansion_image}' alt="${expansion.expansion_title}">
                 <div class="game-info-box"></div>
             </div>
             `
@@ -142,29 +141,42 @@ const openPopupMenu = (id) => {
     .then((res) => {
         res.data.forEach(game => {
 
-            let expandedGame = 
-            `<p id="javascript-magic">
-            ${game.title}
-            </p>
+            let expandedGame = `
+            <p id="javascript-magic">${game.title}</p>
             <p id="javascript-desc">
-            <img class="game-image-popup" src='${game.image}'>
-            <div class="info-container">
-            <p>Players: ${game.players_min} to ${game.players_max}</p>
-            <p>Play Time: ${game.time}</p>
-            <p>Genre: ${game.genre}</p>
-            </div>
-            <div class="add-to-table-button-container">
-            <button onclick="addToTable(${game.boardgame_id})" class="add-to-table-button">Add To Table</button>
-            </div>
+                <img class="game-image-popup" src='${game.image}'>
+                <div class="info-container">
+                    <p>Players: ${game.players_min} to ${game.players_max}</p>
+                    <p>Play Time: ${game.time}</p>
+                    <p>Genre: ${game.genre}</p>
+                </div>
+                <div class="add-to-table-button-container">
+                    <button onclick="addToTable(${game.boardgame_id})" class="add-to-table-button">Add To Table</button>
+                </div>
             </p>
             <div id="close-popup-div" title="Close Menu" onclick="closePopupMenu()">
-            <p>
-            X
-            </p>
-            </div>`
-            
+                <p>X</p>
+            </div>
+
+            <div class="expansions-in-popup-container">
+            </div>
+            `
             popupDiv.style.display = "block"
             popupMainDiv.innerHTML += expandedGame
+
+            axios.get(`/api/expansions/${game.boardgame_id}`)
+            .then(res => {
+                res.data.forEach(expansion => {
+                    const expansionPopupContainer = document.querySelector('.expansions-in-popup-container')
+
+                    let expansionUnder = `
+                    <img class="expansions-in-popup" src="${expansion.expansion_image}">
+                    `
+                    expansionPopupContainer.innerHTML += expansionUnder
+
+                })
+            })
+            
 
         }) 
     })
@@ -179,20 +191,18 @@ const openPopupMenuEx = (id) => {
         res.data.forEach(game => {
 
             let expandedGame = `
-            <p id="javascript-magic">${game.title}</p>
+            <p id="javascript-magic">${game.expansion_title}</p>
             <div id="javascript-desc">
-                <img class="game-image-popup" src='${game.image}'>
-                <div class="info-container">
-                <p>Adds ${game.players_added} more players</p>
+                <img class="game-image-popup" src='${game.expansion_image}'>
+                <div class="info-container-ex">
+                    <p>Adds ${game.players_added} more players</p>
                 </div>
                 <div class="add-to-table-button-container-ex">
-                <button onclick="addExToTable(${game.expansion_id})" class="add-to-table-button">Add To Table</button>
+                    <button onclick="addExToTable(${game.expansion_id})" class="add-to-table-button">Add To Table</button>
                 </div>
             </div>
             <div id="close-popup-div" title="Close Menu" onclick="closePopupMenu()">
-            <p>
-            X
-            </p>
+            <p>X</p>
             </div>`
             
             popupDiv.style.display = "block"
@@ -225,6 +235,7 @@ const addToTable = (id) => {
         axios.get(`/api/popup/${id}`)
     .then((res) => {
         res.data.forEach(game => {
+            console.log(game)
             let bodyObj = {
                 id: game.boardgame_id,
                 title: game.title,
@@ -246,6 +257,43 @@ const addToTable = (id) => {
   }
 }
 
+const addPackToTable = (id1, id2) => {
+
+    bodyObj = {
+        boardgame_id: id1,
+        expansion_id: id2
+    }
+
+    axios.post(`/api/getexpansion`, bodyObj)
+    .then(res => {
+
+        console.log(res.data)
+        
+        axios.post(`/api/getboardgame`, bodyObj)
+        .then(res => {
+            console.log(res.data)
+            res.data.forEach(game => {
+                
+                
+                finalBodyObj = {
+                    boardgame_id: game.boardgame_id,
+                    expansion_id: game.expansion_id,
+                    boardgame_image: `${game.boardgame_image}`,
+                    expansion_image: `${game.expansion_image}`
+                }
+                
+            })
+            console.log(finalBodyObj)
+            
+            // axios.post(`/api/getallgames`, finalBodyObj)
+            // .then(res => {
+                
+            // })
+        })
+    })
+    
+}
+
 const displayTableGames = () => {
     tableTop.innerHTML = ''
 
@@ -254,8 +302,8 @@ const displayTableGames = () => {
         res.data.forEach(game => {
             let tableGame = `
             <div class="table-image-x-container">
-                <img class="table-image" src="${game.tabletop_image}" alt="image">
-                <p class="table-game-x" onclick="removeTableGame(${game.boardgame_id})">X</p>
+                <img class="table-image" src="${game.tabletop_boardgame_image}" alt="image">
+                <p class="table-game-x" onclick="removeTableGame('${game.tabletop_boardgame_image}')">X</p>
             </div>
             `
 
@@ -290,8 +338,8 @@ const addExToTable = (id) => {
         res.data.forEach(ex => {
             let bodyObj = {
                 id: ex.expansion_id,
-                title: ex.title,
-                image: ex.image
+                title: ex.expansion_title,
+                image: ex.expansion_image
             }
             
             
@@ -310,7 +358,13 @@ const addExToTable = (id) => {
 }
 
 const removeTableGame = (id) => {
-    axios.get(`/api/removetabletop/${id}`)
+
+    bodyObj = {
+        image: id
+    }
+
+    console.log(bodyObj)
+    axios.put(`/api/removetabletop`, bodyObj)
     .then((res) => {
         document.location.reload(true);
     })
