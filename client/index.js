@@ -184,7 +184,7 @@ const openPopupMenu = (id) => {
         res.data.forEach(game => {
 
             let expandedGame = `
-            <p id="javascript-magic">${game.title}</p>
+            <p id="javascript-magic" onclick="clearTable()">${game.title}</p>
             <p id="javascript-desc">
                 <img class="game-image-popup" src='${game.image}'>
                 <div class="info-container">
@@ -233,7 +233,7 @@ const openPopupMenuEx = (id) => {
         res.data.forEach(game => {
 
             let expandedGame = `
-            <p id="javascript-magic">${game.expansion_title}</p>
+            <p id="javascript-magic" onclick="clearTable()">${game.expansion_title}</p>
             <div id="javascript-desc">
                 <img class="game-image-popup" src='${game.expansion_image}'>
                 <div class="info-container-ex">
@@ -432,13 +432,13 @@ document.querySelectorAll('.accordion_button').forEach(button => {
         
         
         
-        const clearTable = (id) => {
-            axios.delete(`/api/tabletop/${id}`)
-            .then((res) => {
-                tableFull = false
-                document.location.reload(true);
-            })
-        }
+const clearTable = (id) => {
+    axios.delete(`/api/tabletop/${id}`)
+    .then((res) => {
+        tableFull = false
+        document.location.reload(true);
+    })
+}
 
 const goToHome = (that) => {
     window.location.replace('game-night.html')
