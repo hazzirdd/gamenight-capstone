@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, '../client/signup.html'))
 })
 
-const {getBoardgames, createPopUp, createPopUpEx, sortByTitle, sortByGenre, sortByPublisher, sortByYear, clearTable, addToTable, getTableTopGames, tableCounter, requestGame, getRequests, loginCheck, createUser, getExpansions, removeTableGame, getExpansionsId, addPackToTable, getOneBoardgame, getOneExpansion} = require('./controller.js')
+const {getBoardgames, createPopUp, createPopUpEx, sortByTitle, sortByGenre, sortByPublisher, sortByYear, clearTable, addToTable, getTableTopGames, tableCounter, requestGame, getRequests, loginCheck, createUser, getExpansions, removeTableGame, getExpansionsId, addPackToTable, getOneBoardgame, getOneExpansion, search, sortByHayden} = require('./controller.js')
 
 
 app.get('/api/boardgames', getBoardgames)
@@ -26,6 +26,7 @@ app.get('/api/sortbytitle', sortByTitle)
 app.get('/api/sortbygenre', sortByGenre)
 app.get('/api/sortbypublisher', sortByPublisher)
 app.get('/api/sortbyyear', sortByYear)
+app.get('/api/sortbyhayden', sortByHayden)
 app.post('/api/table', addToTable)
 app.get('/api/tabletop', getTableTopGames)
 app.delete('/api/tabletop/:id', clearTable)
@@ -38,6 +39,7 @@ app.get('/api/expansions/:id', getExpansionsId)
 app.post('/api/getexpansion', getOneExpansion)
 app.post('/api/getboardgame', getOneBoardgame)
 app.post('/api/getallgames', addPackToTable)
+app.post('/api/search', search)
 
 app.get('/api/users', loginCheck)
 app.post('/api/users', createUser)

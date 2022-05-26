@@ -20,7 +20,7 @@ module.exports = {
         // console.log(req.params)
         sequelize.query(`
         SELECT * FROM boardgames
-        ORDER BY title ASC
+        ORDER BY haydens_rank ASC
         `)
         .then((dbRes) => {
             res.status(200).send(dbRes[0]);
@@ -110,7 +110,20 @@ module.exports = {
         .catch((err) => {
             console.log(err)
         })
-    },   
+    },
+
+    sortByHayden: (req, res) => {
+        sequelize.query(`
+        SELECT * FROM boardgames
+        ORDER BY haydens_rank ASC
+        `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0])
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    },
 
     addToTable: (req, res) => {
         // console.log(req.body)
@@ -306,6 +319,24 @@ module.exports = {
         // VALUES (${boardgame_id}, '${boardgame_image}'),
         // (${expansion_id}, '${expansion_image}')
         // `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0])
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    },
+
+    search: (req, res) => {
+        const {searchReq} = req.body
+
+        console.log(searchReq)
+
+        sequelize.query(`
+        SELECT * FROM boardgames
+        WHERE title
+        LIKE '%${searchReq}%'
+        `)
         .then((dbRes) => {
             res.status(200).send(dbRes[0])
         })

@@ -10,6 +10,8 @@ const gameRequesteeInput = document.querySelector('.game-requestee-input');
 const gameRequestBtn = document.querySelector('.game-request-btn');
 const gameRequestContainer = document.querySelector('.game-request-container');
 const expansionList = document.querySelector('.expansions-container');
+const searchBar = document.querySelector('#search-bar');
+const searchSubmitBtn = document.querySelector('.search-submit-btn');
 
 const baseURL = `/api/boardgames`
 
@@ -129,7 +131,47 @@ const sortBy = () => {
                         boardgameList.innerHTML += gameCard
                     })
         })
+    } else if (gameSort.value === 'haydens-rank') {
+        axios.get(`/api/sortbyhayden`)
+        .then(res => {
+            res.data.forEach(game => {
+                let gameCard = `
+                <div class="game-card">
+                    <img onclick="openPopupMenu(${game.boardgame_id})" class="game-image" src='${game.image}' alt="${game.title}">
+                    <button onclick="openPopupMenu(${game.boardgame_id})" class="game-image-button">${game.title}</button>
+                        <div class="game-info-box"></div>
+                </div>
+                        `
+                        
+                        boardgameList.innerHTML += gameCard
+                    })
+        })
     }
+}
+
+const search = () => {
+    boardgameList.innerHTML = ''
+
+    let searchValue = searchBar.value
+    let searchValueUpper = searchValue.charAt(0).toUpperCase() + searchValue.slice(1);
+
+    bodyObj = {
+        searchReq: searchValueUpper
+    }
+
+    axios.post(`/api/search`, bodyObj)
+    .then(res => {
+        res.data.forEach(game => {
+            let gameCard = `
+            <div class="game-card">
+                <img onclick="openPopupMenu(${game.boardgame_id})" class="game-image" src='${game.image}' alt="${game.title}">
+                <button onclick="openPopupMenu(${game.boardgame_id})" class="game-image-button">${game.title}</button>
+                <div class="game-info-box"></div>
+            </div>
+                    `
+            boardgameList.innerHTML += gameCard
+        })
+    })
 }
 
 // POP UP DEMO VIDEO JAVASCRIPT
@@ -460,6 +502,7 @@ displayRequests();
 sortSubmitBtn.addEventListener('click', sortBy);
 clearTableButton.addEventListener('click', clearTable);
 gameRequestBtn.addEventListener('click', requestGame);
+searchSubmitBtn.addEventListener('click', search);
 
 
 

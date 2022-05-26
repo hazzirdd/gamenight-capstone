@@ -176,9 +176,22 @@ html {
     border-radius: 4px;
 }
 
-/* #game-sort-title {
+.search-bar-container-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
 
-} */
+.search-bar-container {
+    display: flex;
+    padding: 20px;
+    background-color: rgba(124, 124, 124, 0.3);
+}
+
+#search-bar {
+    padding: 5px;
+}
 
 #game-sort {
     background-color:rgb(215, 236, 248);
@@ -206,7 +219,7 @@ html {
     width: 100%;
     height: auto;
     padding:20px;
-    margin: 100px auto;
+    margin: auto auto;
     display: grid;
     flex-direction: row;
     justify-content: center;
