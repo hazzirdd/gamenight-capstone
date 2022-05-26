@@ -45,6 +45,21 @@ module.exports = {
         })
     },
 
+    createPopUpEx: (req, res) => {
+        const {id} = req.params
+
+        sequelize.query(`
+        SELECT * FROM expansions
+        WHERE expansion_id = ${id}
+        `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0]);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    },
+
     sortByTitle: (req, res) => {
         sequelize.query(`
         SELECT * FROM boardgames
@@ -198,6 +213,19 @@ module.exports = {
         sequelize.query(`
         INSERT INTO gamenight_users(username, password)
         VALUES ('${username}', '${password}')
+        `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0]);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    },
+
+    getExpansions: (req, res) => {
+        sequelize.query(`
+        SELECT * FROM expansions
+        ORDER BY title ASC
         `)
         .then((dbRes) => {
             res.status(200).send(dbRes[0]);

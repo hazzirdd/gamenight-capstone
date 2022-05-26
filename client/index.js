@@ -9,6 +9,7 @@ const gameRequestInput = document.querySelector('.game-request-input');
 const gameRequesteeInput = document.querySelector('.game-requestee-input');
 const gameRequestBtn = document.querySelector('.game-request-btn');
 const gameRequestContainer = document.querySelector('.game-request-container');
+const expansionList = document.querySelector('.expansions-container');
 
 const baseURL = `/api/boardgames`
 
@@ -36,14 +37,32 @@ const displayGames = () => {
                     <div class="game-info-box"></div>
             </div>
                     `
-                    //Took out this button, got annoying
-                    // <button onclick="openPopupMenu(${game.boardgame_id})" class="game-image-button">${game.title}</button>
+            //Took out this button, got annoying
+            // <button onclick="openPopupMenu(${game.boardgame_id})" class="game-image-button">${game.title}</button>
                     
-                    boardgameList.innerHTML += gameCard
-                })
-            })
-        }
+            boardgameList.innerHTML += gameCard
+        })
+    })
+}
 
+const displayExpansions = () => {
+    expansionList.innerHTML = ``
+
+    axios.get(`/api/expansions`)
+    .then(res => {
+        res.data.forEach(expansion => {
+            console.log(expansion.expansion_id)
+            let gameCard = `
+            <div class="game-card" class="game-card-grid">
+                <img onclick="openPopupMenuEx(${expansion.expansion_id})" class="expansion-image" src='${expansion.image}' alt="${expansion.title}">
+                <div class="game-info-box"></div>
+            </div>
+            `
+
+            expansionList.innerHTML += gameCard
+        })
+    })
+}
 
 // ORGANIZATION TOOLS
 const sortBy = () => {
@@ -123,13 +142,6 @@ const openPopupMenu = (id) => {
     .then((res) => {
         res.data.forEach(game => {
 
-            // let body = {
-            //     id: game.boardgame_id,
-            //     image: `${game.image}`
-            // }
-
-            // console.log(body)
-
             let expandedGame = 
             `<p id="javascript-magic">
             ${game.title}
@@ -158,6 +170,37 @@ const openPopupMenu = (id) => {
     })
 }
     
+const openPopupMenuEx = (id) => {
+
+    popupMainDiv.innerHTML = ''
+    
+    axios.get(`/api/popupEx/${id}`)
+    .then((res) => {
+        res.data.forEach(game => {
+
+            let expandedGame = `
+            <p id="javascript-magic">${game.title}</p>
+            <div id="javascript-desc">
+                <img class="game-image-popup" src='${game.image}'>
+                <div class="info-container">
+                <p>Adds ${game.players_added} more players</p>
+                </div>
+                <div class="add-to-table-button-container-ex">
+                <button onclick="addToTable(${game.boardgame_id})" class="add-to-table-button">Add To Table</button>
+                </div>
+            </div>
+            <div id="close-popup-div" title="Close Menu" onclick="closePopupMenu()">
+            <p>
+            X
+            </p>
+            </div>`
+            
+            popupDiv.style.display = "block"
+            popupMainDiv.innerHTML += expandedGame
+
+        }) 
+    })
+}
 
 
 //I want to use this function below to enter the boardgame_id onto the tabletop, that works. 
@@ -334,6 +377,7 @@ const displayRequests = () => {
 
 displayGames();
 displayTableGames();
+displayExpansions();
 displayRequests();
 
 sortSubmitBtn.addEventListener('click', sortBy);
