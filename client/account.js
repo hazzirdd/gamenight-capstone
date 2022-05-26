@@ -51,13 +51,21 @@ const createUser = () => {
             password: enteredPassword
         }
         
-        console.log(bodyObj)
-
-        axios.post('/api/users', bodyObj)
-        .then((res)=> {
+        res.data.forEach((user) => {
+            if (user.username === enteredUsername) {
+                return alert('Username already taken')
+            } else { 
+                addNewUser(bodyObj)
+            }
         })
     })
-    window.location.replace('game-night.html')
+}
+
+const AddNewUser = (bodyObj) => {
+    axios.post('/api/users', bodyObj)
+    .then((res)=> {
+        window.location.replace('game-night.html')
+    })
 }
 
 const goToSignup = () => {

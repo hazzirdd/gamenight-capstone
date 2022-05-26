@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, '../client/signup.html'))
 })
 
-const {getBoardgames, createPopUp, createPopUpEx, sortByTitle, sortByGenre, sortByPublisher, sortByYear, clearTable, addToTable, getTableTopGames, tableCounter, requestGame, getRequests, loginCheck, createUser, getExpansions} = require('./controller.js')
+const {getBoardgames, createPopUp, createPopUpEx, sortByTitle, sortByGenre, sortByPublisher, sortByYear, clearTable, addToTable, getTableTopGames, tableCounter, requestGame, getRequests, loginCheck, createUser, getExpansions, removeTableGame} = require('./controller.js')
 
 
 app.get('/api/boardgames', getBoardgames)
@@ -29,6 +29,7 @@ app.get('/api/sortbyyear', sortByYear)
 app.post('/api/table', addToTable)
 app.get('/api/tabletop', getTableTopGames)
 app.delete('/api/tabletop/:id', clearTable)
+app.get('/api/removetabletop/:id', removeTableGame)
 app.get('/api/counter', tableCounter)
 app.post('/api/request', requestGame)
 app.get('/api/request', getRequests)

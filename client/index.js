@@ -186,7 +186,7 @@ const openPopupMenuEx = (id) => {
                 <p>Adds ${game.players_added} more players</p>
                 </div>
                 <div class="add-to-table-button-container-ex">
-                <button onclick="addToTable(${game.boardgame_id})" class="add-to-table-button">Add To Table</button>
+                <button onclick="addExToTable(${game.expansion_id})" class="add-to-table-button">Add To Table</button>
                 </div>
             </div>
             <div id="close-popup-div" title="Close Menu" onclick="closePopupMenu()">
@@ -201,32 +201,6 @@ const openPopupMenuEx = (id) => {
         }) 
     })
 }
-
-
-//I want to use this function below to enter the boardgame_id onto the tabletop, that works. 
-// Next I want to call a new function within addGameToTable, addGameImagetoTable perhaps.
-// addGameImagetoTable will also edit the html of tableTop to show the new images.
-
-//above was mostly done, now we got to figure out addGameImagetoTable
-
-// const addGameIdToTable = (id) => {
-//     console.log(id)
-//     axios.post(`http://localhost:8080/api/tabletop/${id}`)
-//     .then((res) => {
-//         res.data.forEach(game => {
-//             console.log('ID made it out of the backend!')
-
-//             // let = tableGame = `
-//             // <h1>${game.image}</h1>
-//             // `
-//             // <img class="table-image" src="${game.image}">
-//             // tableTop.innerHTML += tableGame
-//         })
-//     })
-//     .catch((err) => {
-//         console.error(err)
-//     })
-// }
 
 let tableFull = false
 
@@ -245,7 +219,6 @@ const addToTable = (id) => {
             return tableFull = true
         } else {
 
-        
         
         console.log(tableFull)
         
@@ -280,7 +253,10 @@ const displayTableGames = () => {
     .then((res) => {
         res.data.forEach(game => {
             let tableGame = `
-            <img class="table-image" src="${game.tabletop_image}" alt="image">
+            <div class="table-image-x-container">
+                <img class="table-image" src="${game.tabletop_image}" alt="image">
+                <p class="table-game-x" onclick="removeTableGame(${game.boardgame_id})">X</p>
+            </div>
             `
 
             tableTop.innerHTML += tableGame
@@ -291,11 +267,58 @@ const displayTableGames = () => {
     })
 }
 
+const addExToTable = (id) => {
+    
+    if (tableFull === true) {
+        alert('You can only add 6 games to the table')
+        return
+    } else {
+
+    axios.get(`/api/counter`)
+    .then((res) => {
+        let count = res.data[0].count
+        if (count >= 6) {
+            console.log('tableFull = true')
+            return tableFull = true
+        } else {
+
+        
+        console.log(tableFull)
+        
+        axios.get(`/api/popupEx/${id}`)
+    .then((res) => {
+        res.data.forEach(ex => {
+            let bodyObj = {
+                id: ex.expansion_id,
+                title: ex.title,
+                image: ex.image
+            }
+            
+            
+                axios.post(`/api/table`, bodyObj)
+                .then((res) => {
+                    
+                    
+                    closePopupMenu()
+                    document.location.reload(true);
+                })
+            })
+        })
+      }
+    })
+  }
+}
+
+const removeTableGame = (id) => {
+    axios.get(`/api/removetabletop/${id}`)
+    .then((res) => {
+        document.location.reload(true);
+    })
+}
 
 const closePopupMenu = () => {
     popupDiv.style.display = "none"
 }
-
 
 
 // Video demo on accordion

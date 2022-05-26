@@ -152,6 +152,24 @@ module.exports = {
             console.log(err);
         })
     },
+    
+    removeTableGame: (req, res) => {
+        const {id} = req.params
+
+        console.log(id)
+
+        sequelize.query(`
+        DELETE
+        FROM tabletop
+        WHERE boardgame_id=${id}
+        `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0]);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    },
 
     clearTable: (req, res) => {
         sequelize.query(`

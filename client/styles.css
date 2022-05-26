@@ -92,12 +92,13 @@ html {
     grid-template-rows: 2in;
     position: absolute;
     width: 7in;
-    height: 4in;
+    height: 4.1in;
     background-image: url(tabletop.jpg);
     background-position:center;
     align-items: center;
     justify-content: center;
-    overflow:hidden;
+    /* overflow:hidden; */
+    box-shadow: 11px 6px rgb(39, 21, 1);
 }
 
 .table-image {
@@ -105,7 +106,28 @@ html {
     width: 1.8in;
     height: 1.8in;
     border-radius: 5px;
-    object-fit:scale-down;
+    object-fit:fill;
+    box-shadow: 6px 11px rgb(19, 19, 19);
+}
+
+.table-image-x-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-game-x {
+    position: absolute;
+    color: rgba(211, 164, 164, 0.5);
+    z-index: 3;
+    font-size: 23px;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.table-game-x:hover {
+    color: red;
+    transform:rotate(180deg);
+    text-shadow: 0px 0px 4px rgb(0, 0, 0);
 }
 
 .clear-table-btn-container {
@@ -262,7 +284,7 @@ html {
     height: 500px;
     border: 2px solid black;
     border-radius: 5px;
-    background-image: url(WoodBackground.jpeg) ;
+    background-image: url('https://media.istockphoto.com/photos/dark-green-wool-velvet-texture-background-picture-id1153876379?k=20&m=1153876379&s=612x612&w=0&h=oRz6uBQB9aiuYvosgnIVEaht1he0rlWqSVG06G0Rr-U=') ;
     left:50%;
     margin-left: -400px;
     top: 50%;
@@ -300,13 +322,20 @@ html {
     font-family: sans-serif;
     font-weight: bold;
     cursor: pointer;
+    transition: .2s;
+}
+
+#close-popup-div p:hover {
+    color:rgb(160, 0, 0);
+    transform: scale(1.45);
 }
 
 #javascript-magic {
     text-align: center;
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 30px;
-    background-color: rgb(165, 165, 165);
+    background: rgb(175,175,175);
+    background: linear-gradient(107deg, rgba(175,175,175,1) 1%, rgba(106,106,106,1) 100%);
     padding-top: 10px;
     padding-bottom: 10px;
     margin-top: 0;
@@ -332,7 +361,9 @@ html {
     width: 2.8in;
     height: 2.8in;
     margin-left: 60px;
-    object-fit: scale-down;
+    object-fit: fill;
+    box-shadow: 6px 11px rgb(19, 19, 19);
+    border: 2px solid black;
 }
 
 /* IPHONE */
@@ -351,8 +382,8 @@ html {
     display: flex;
     flex-direction: column;
     position:relative;
-    left: 342px;
-    bottom: 160px;
+    left: 430px;
+    bottom: 120px;
     font-size: 25px;
     font-weight: bold;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -360,6 +391,7 @@ html {
     padding-right: 10px;
     background-color: rgba(255, 255, 255, 0.3);
     width:fit-content;
+    border: 1px solid black;
 }
 
 /* IPHONE */
@@ -379,8 +411,8 @@ html {
 .add-to-table-button-container {
     display: flex;
     position: absolute;
-    left: 75%;
-    bottom: 40%;
+    left: 62%;
+    bottom: 53%;
 }
 
 .add-to-table-button {
@@ -443,8 +475,8 @@ html {
   }
 
 .expansions-container {
-    padding-top: .5in;
-    padding-bottom: .5in;
+    padding-top: .3in;
+    padding-bottom: .3in;
     width: 100%;
     height: auto;
     padding:20px;
@@ -453,7 +485,7 @@ html {
     flex-direction: row;
     justify-content: center;
     grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: 300px
+    grid-template-rows: 300px 300px
 }
 
 .expansion-image {
