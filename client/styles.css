@@ -31,12 +31,6 @@ html {
     background-color: #474747;
 }
 
-.footer {
-    height: 1in;
-    width: 100%;
-    background-color: #474747;
-    bottom: 0;
-}
 
 .header h1{
     margin-top: 30px;
@@ -78,6 +72,42 @@ html {
     transform: scale(1.2);
 }
 
+.ad-container {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.ad {
+    position: absolute;
+    width: 213px;
+    top: 500px;
+    cursor: pointer;
+}
+
+.ad-text-container {
+    display: flex;
+    background-color: yellow;
+    width: 193px;
+    height: 87px;
+    right: 19px;
+    top: 507px;
+    position: absolute;
+    z-index: -1;
+    cursor: pointer;
+}
+
+.bubble-text {
+    color: red;
+    top: 17px;
+    right: 2px;
+    position: absolute;
+    z-index: 4;
+    font-size: 20px;
+    cursor: pointer;
+    padding-left: 10px;
+}
+
 #game-list-h1 {
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -96,6 +126,7 @@ html {
     height: 400px;
 }
 
+/* COMPUTER */
 #tabletop-table-image {
     display: grid;
     grid-template-columns: 2in 2in 2in;
@@ -107,10 +138,25 @@ html {
     background-position:center;
     align-items: center;
     justify-content: center;
-    /* overflow:hidden; */
     box-shadow: 11px 6px rgb(39, 21, 1);
 }
 
+/* IPHONE */
+/* #tabletop-table-image {
+    display: grid;
+    grid-template-columns: 27vw 27vw 27vw;
+    grid-template-rows: 2in;
+    position: absolute;
+    width: 90vw;
+    height: 4.1in;
+    background-image: url(tabletop.jpg);
+    background-position: center;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 11px 6px rgb(39 21 1);
+} */
+
+/* COMPUTER */
 .table-image {
     display: block;
     width: 1.8in;
@@ -119,6 +165,20 @@ html {
     object-fit:fill;
     box-shadow: 6px 11px rgb(19, 19, 19);
 }
+
+/* IPHONE */
+/* .table-image {
+    display: block;
+    width: 25vw;
+    max-width: 200px;
+    max-height: 200px;
+    height: 25vw;
+    border-radius: 5px;
+    object-fit: fill;
+    box-shadow: 6px 11px rgb(19 19 19);
+} */
+
+
 
 .table-image-x-container {
     display: flex;
@@ -215,7 +275,8 @@ html {
     transform: scale(1.1);
 }
 
-.boardgame-list {
+/* COMPUTER */
+/* .boardgame-list {
     width: 100%;
     height: auto;
     padding:20px;
@@ -225,14 +286,20 @@ html {
     justify-content: center;
     grid-template-columns: 20% 20% 20% 20% 20%;
     grid-template-rows: 300px 300px 300px 300px 300px 300px 300px;
-  }
-
-/* .game-card-grid {
-    display: grid;
-    grid-template-columns: 1fr 500px 1fr;
-    grid-template-rows: 100px 200px;
-    place-items: center;
 } */
+
+/* IPHONE */
+.boardgame-list {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    margin: 0px -34px;
+    display: grid;
+    flex-direction: row;
+    justify-content: center;
+    grid-template-columns: 18vw 18vw 18vw 18vw 18vw;
+    grid-template-rows: 20vw 20vw 20vw 20vw 20vw 20vw 20vw;
+}
 
 .game-card {
     width: max-content;
@@ -243,35 +310,48 @@ html {
     display:flex;
     justify-content: center;
     align-items: center;
-  }
+}
 
-  .game-image {
-      display: block;
-      width: 2.5in;
-      height: 2.5in;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: .5s;
-      object-fit:fill;
-      border: 3px solid rgba(0, 0, 0, 0.75);
-    }
+/* COMPUTER */
+/* .game-image {
+    display: block;
+    width: 2.5in;
+    height: 2.5in;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: .5s;
+    object-fit:fill;
+    border: 3px solid rgba(0, 0, 0, 0.75);
+} */
 
-    .game-image:hover{
-        border: 5px solid #306FA2;
-        transform:scale(1.3);
-        z-index: 0;
-        /* box-shadow: 0 0 0 200px rgba(0, 0, 0, 0.9) inset; */
-    }
-    
+/* IPHONE */
+.game-image {
+    display: block;
+    width: 15vw;
+    height: 15vw;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: .5s;
+    object-fit: fill;
+    border: 3px solid rgba(0, 0, 0, 0.75);
+}
+
+.game-image:hover{
+    border: 5px solid #306FA2;
+    transform:scale(1.3);
+    z-index: 0;
+    /* box-shadow: 0 0 0 200px rgba(0, 0, 0, 0.9) inset; */
+}
+
 .game-image-button {
     position: absolute;
     display: block;
     width: 1in;
     height: .3in;
-
+    
     opacity: 0;
 }
-    
+/* Took out, got annoying  */
 /* .game-image-button:hover {
     opacity: 1;
     transform: scale(1);
@@ -300,7 +380,7 @@ html {
     z-index:4;
     cursor: pointer;
 }
-/* ORIGINAL */
+/* COMPUTER */
 #popup-main-div {
     position: fixed;
     width: 800px;
@@ -315,7 +395,7 @@ html {
     z-index: 4;
 }
 
-/* FOR IPHONE */
+/* IPHONE */
 /* #popup-main-div {
     position: fixed;
     width: 95vw;
@@ -506,47 +586,47 @@ html {
     z-index: 5;
 }
 
-  .accordion_button {
-      display: block;
-      width: 100%;
-      padding: 15px;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      background: #333333;
-      color: white;
-      text-align: left;
-      transition: background 0.2s;
-  }
+.accordion_button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #333333;
+    color: white;
+    text-align: left;
+    transition: background 0.2s;
+}
 
   .accordion_button::after {
       content: "\25be";
       float: right;
       transform: scale(1.5);
-  }
+    }
   .accordion_button--active + .accordion_content {display: block;}
   .accordion_button--active { background: #555555}
   .accordion_button--active::after { content: "\25b4"}
-
+  
   /* You are able to hide the content, but you are also able to animate the height when the accordion gets expanded */
-
+  
   .accordion_content {
       /* overflow: hidden;
       max-height: 0;
       transition: max-height 0.2s; */
-
+      
       padding: 0 15px;
       font-family: "sans-serif";
       background: #eeeeee;
-
+      
       display: none;
       overflow: auto;
-  }
-
-.expansions-container {
-    padding-top: .3in;
-    padding-bottom: .3in;
-    width: 100%;
+    }
+    /* COMPUTER */
+    /* .expansions-container {
+        padding-top: .3in;
+        padding-bottom: .3in;
+        width: 100%;
     height: auto;
     padding:20px;
     margin: 100px auto;
@@ -555,9 +635,25 @@ html {
     justify-content: center;
     grid-template-columns: 20% 20% 20% 20% 20%;
     grid-template-rows: 300px 300px
+} */
+
+/* IPHONE */
+.expansions-container {
+    padding-top: 0.3in;
+    padding-bottom: 0.3in;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    margin: 0 -34px;
+    display: grid;
+    flex-direction: row;
+    justify-content: center;
+    grid-template-columns: 18vw 18vw 18vw 18vw 18vw;
+    grid-template-rows: 20vw 20vw;
 }
 
-.expansion-image {
+/* COMPUTER */
+/* .expansion-image {
     display: block;
     width: 2.5in;
     height: 2.5in;
@@ -566,36 +662,69 @@ html {
     transition: .5s;
     object-fit:fill;
     border: 3px solid rgba(0, 0, 0, 0.75);
-  }
-  
-  .expansion-image:hover{
-      border: 5px solid #306FA2;
-      transform:scale(1.2);
-      z-index: 0;
-      /* box-shadow: 0 0 0 200px rgba(0, 0, 0, 0.9) inset; */
-  }
+} */
 
-
-  .requestee-text {
-    font-weight: bold;
+/* IPHONE */
+.expansion-image {
+    display: block;
+    width: 15vw;
+    height: 15vw;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: .5s;
+    object-fit: fill;
+    border: 3px solid rgba(0, 0, 0, 0.75);
 }
 
-.request-title-text {
-    font-style: italic;
-    color:rgb(197, 54, 54);
-  }
-
-
-/* ABOUT */
-.about-text-container {
-	display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    margin-top: 1in;
-    margin-bottom: 1in;
-    background-color: rgba(255, 255, 255, 0.5);
+.expansion-image:hover{
+    border: 5px solid #306FA2;
+    transform:scale(1.2);
+    z-index: 0;
+      /* box-shadow: 0 0 0 200px rgba(0, 0, 0, 0.9) inset; */
+    }
+    
+    
+    .requestee-text {
+        font-weight: bold;
+    }
+    
+    .request-title-text {
+        font-style: italic;
+        color:rgb(197, 54, 54);
+    }
+    
+    .footer {
+        height: 1in;
+        width: 100%;
+        background-color: #474747;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .footer-images {
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+    }
+    
+    .insta {
+        width: 3vw;
+        min-width: 50px;
+        cursor: pointer;
+    }
+    
+    /* ABOUT */
+    .about-text-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        margin-top: 1in;
+        margin-bottom: 1in;
+        background-color: rgba(255, 255, 255, 0.5);
     padding: 15px, 0, 15px, 0;
 }
 

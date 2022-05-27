@@ -12,6 +12,7 @@ const gameRequestContainer = document.querySelector('.game-request-container');
 const expansionList = document.querySelector('.expansions-container');
 const searchBar = document.querySelector('#search-bar');
 const searchSubmitBtn = document.querySelector('.search-submit-btn');
+const addContainer = document.querySelector('.ad-container');
 
 const baseURL = `/api/boardgames`
 
@@ -494,6 +495,36 @@ const displayRequests = () => {
 }
 
 
+const popUpAd = () => {
+
+    addContainer.innerHTML += `
+    <img onclick="goToAd()" src="https://static.vecteezy.com/system/resources/previews/001/195/589/original/speech-bubble-png.png" class="ad">
+    <div class="ad-text-container">
+        <h3 onclick="goToAd()" class="bubble-text">psssst... click me.. you can trust me bro</h3>
+    </div>
+    `
+}
+
+const goToAd = () => {
+    window.open("https://deployment-lab-haz.herokuapp.com/")
+}
+
+
+const randomChance = () => {
+    let fate = Math.floor(Math.random() * 20);
+    console.log(fate)
+
+    if(fate === 19) {
+        popUpAd()
+    } else {
+        return
+    }
+}
+
+randomChance()
+
+
+// randomChance();
 displayGames();
 displayTableGames();
 displayExpansions();
