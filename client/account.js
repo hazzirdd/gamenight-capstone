@@ -61,7 +61,7 @@ const createUser = () => {
     })
 }
 
-const AddNewUser = (bodyObj) => {
+const addNewUser = (bodyObj) => {
     axios.post('/api/users', bodyObj)
     .then((res)=> {
         window.location.replace('game-night.html')
