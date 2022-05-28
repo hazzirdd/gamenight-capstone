@@ -83,6 +83,7 @@ html {
     width: 213px;
     top: 500px;
     cursor: pointer;
+    z-index:3
 }
 
 .ad-text-container {
@@ -93,7 +94,7 @@ html {
     right: 19px;
     top: 507px;
     position: absolute;
-    z-index: -1;
+    z-index: 2;
     cursor: pointer;
 }
 
@@ -763,6 +764,15 @@ html {
     width: 50vw;
     border: 14px solid orange;
     border-radius: 30px;
+}
+
+.maze-link {
+    position: relative;
+    background-color: #4b4b4b;
+    height: 91px;
+    width: 50px;
+    right: 0%;
+    bottom: -95px;
 }
 
 /* LOG IN */

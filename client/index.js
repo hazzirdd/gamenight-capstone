@@ -13,6 +13,7 @@ const expansionList = document.querySelector('.expansions-container');
 const searchBar = document.querySelector('#search-bar');
 const searchSubmitBtn = document.querySelector('.search-submit-btn');
 const addContainer = document.querySelector('.ad-container');
+const hoverDeath = document.querySelector('.hover-death');
 
 const baseURL = `/api/boardgames`
 
@@ -517,14 +518,13 @@ const randomChance = () => {
     if(fate === 19) {
         popUpAd()
     } else {
-        return
+        return 
     }
 }
 
-randomChance()
 
 
-// randomChance();
+randomChance();
 displayGames();
 displayTableGames();
 displayExpansions();
@@ -535,8 +535,6 @@ clearTableButton.addEventListener('click', clearTable);
 gameRequestBtn.addEventListener('click', requestGame);
 searchSubmitBtn.addEventListener('click', search);
 
-
-
-//NOTES FOR RETURN ON TUESDAY
-
-// 3. Add shadow effect to the table and tableGames to make them look 3D
+if (hoverDeath !== null) {
+    hoverDeath.addEventListener('click', mazeLose)
+}

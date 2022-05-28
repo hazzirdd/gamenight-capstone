@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+}
+
+.wall1 {
+    background-color: black;
+    position: fixed;
+    width: 445px;
+    height: 10px;
+    left: 449px;
+    top: 201px;
+}
+
+.wall2 {
+    background-color: black;
+    position: fixed;
+    width: 10px;
+    height: 341px;
+    left: 885px;
+    top: 200px;
+}
+
+.wall3 {
+    background-color: black;
+    position: fixed;
+    width: 631px;
+    height: 10px;
+    left: 263px;
+    top: 529px;
+}
+
+.wall4 {
+    background-color: black;
+    position: fixed;
+    width: 10px;
+    height: 346px;
+    left: 263px;
+    top: 200px;
+}
+
+.wall5 {
+    background-color: black;
+    position: fixed;
+    width: 10px;
+    height: 133px;
+    left: 410px;
+    top: 200px;
+}
+
+.wall6 {
+    background-color: black;
+    position: fixed;
+    width: 10px;
+    height: 162px;
+    left: 448px;
+    top: 200px;
+}
+
+.wall7 {
+    background-color: black;
+    position: fixed;
+    width: 159px;
+    height: 10px;
+    left: 298px;
+    top: 354px;
+}
+
+.wall8 {
+    background-color: black;
+    position: fixed;
+    width: 10px;
+    height: 184px;
+    left: 299px;
+    top: 325px;
+}
+
+.wall9 {
+    background-color: black;
+    position: fixed;
+    width: 400px;
+    height: 10px;
+    left: 298px;
+    top: 502px;
+}
+
+.wall10 {
+    background-color: black;
+    position: fixed;
+    width: 10px;
+    height: 197px;
+    left: 688px;
+    top: 311px;
+}
+
+.wall11 {
+    background-color: black;
+    position: fixed;
+    width: 10px;
+    height: 309px;
+    left: 724px;
+    top: 206px;
+}
+
+.wall12 {
+    background-color: black;
+    position: fixed;
+    width: 10px;
+    height: 306px;
+    left: 706px;
+    top: 228px;
+}
+
+.wall13 {
+    background-color: black;
+    position: fixed;
+    width: 154px;
+    height: 10px;
+    left: 264px;
+    top: 199px;
+}
+
+.wall14 {
+    background-color: black;
+    position: fixed;
+    width: 83px;
+    height: 10px;
+    left: 300px;
+    top: 323px;
+}
+
+.goal {
+    width: 20px;
+    height: 20px;
+    background-color: green;
+    position: fixed;
+    left: 847px;
+    top: 488px;
+}

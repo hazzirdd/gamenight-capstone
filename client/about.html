@@ -28,9 +28,18 @@
         <h1 class="about-text">The great database of boardgames! Search through Hayden's library of favorite games and pick out what you want to play. Add them to the table and hit him up for a legendary Game Night!</h1>
     </div>
 
+    <div class="maze-link"></div> 
     <footer class="footer">
-
+        <div class="footer-images">
+            <img src="https://www.edigitalagency.com.au/wp-content/uploads/new-instagram-logo-white-border-icon-png-large.png" class="insta" id="insta">
+            <img src="https://www.freeiconspng.com/uploads/facebook-logo-png-white-facebook-logo-png-white-facebook-icon-png--32.png" class="insta" id="facebook">
+        </div>
     </footer>
+    <script>
+        document.querySelector('#insta').addEventListener('click', () => {window.open('https://www.instagram.com/hazsweet/?hl=en')})
+        document.querySelector('#facebook').addEventListener('click', () => {window.open('https://www.facebook.com/hayden.sweet.568')})
+        document.querySelector('.maze-link').addEventListener('click', () => {window.location.replace('maze.html')})
+    </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
 <script src="index.js"></script>
 </body>
