@@ -4,12 +4,12 @@
 ![list-screenshot](https://i.pinimg.com/originals/a0/d5/5d/a0d55d44e7760372ea92e625a0509942.jpg "Game List View")
 
 ### Technologies
--JavaScript
--Express
--postgreSQL / Sequelize
--JSON
--HTML
--CSS
+- JavaScript
+- Express
+- postgreSQL / Sequelize
+- JSON
+- HTML
+- CSS
 
 ### Features
 ##### Using the app is very simple and satisfying. At the end of the game list is a large plus sign image with a black border. That is what you'll use to add your games to the database for your friends and family to see. Click on any game to pull up information and to add it to the table. When board games are added to teh table, they can be removed easily by the "x" in the top left of each image, or the clear table button. 
