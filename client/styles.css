@@ -355,7 +355,7 @@ html {
 }
 
 .game-image-add:hover{
-    border: 5px solid #268123;
+    border: 3px solid #268123;
     z-index: 0;
 }
 

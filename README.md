@@ -16,3 +16,8 @@
 ##### Game expansions can be added the same way, but less information is needed.
 ##### At the top of the game list their are options for sorting and searching! As your game list grows these can come in handy for you and your guests.
 ##### The bottom of the page shows has a drop down menu for game requests! Your party members can request games from you here that they would like to see in the list. All that is required to add a game is a name and game title.
+![plus-button](https://i.pinimg.com/originals/33/30/3a/33303a4b3907fd6cc5ffe043c92e8cbb.jpg "Plus Button")
+![add-game](https://i.pinimg.com/564x/c0/df/2c/c0df2c93d7ca0c7b4be124128afce2d4.jpg "Add Game Form")
+
+### Created By:
+#### Hayden Sweet, a software engineer from Salt Lake, Utah
