@@ -23,7 +23,7 @@ if (hoverDeath !== null) {
 }
 
 if (goal !== null) {
-    goal.addEventListener('mouseover', mazeWin)
+    goal.addEventListener('dblclick', mazeWin)
 }
 
 giveUpBtn.addEventListener('click', giveUp)
