@@ -1,0 +1,2 @@
+# GameNight
+##### Inspired by traumatic events of hualing stacks of boardgames to friends and family homes to only play one or two of them. That will happen, no more! Browse through the collection of boardgames adding your favorites to the table. Then the host will know what to prepare, or what to bring. Game on!
