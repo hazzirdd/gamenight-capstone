@@ -186,7 +186,7 @@ const openPopupMenu = (id) => {
         res.data.forEach(game => {
 
             let expandedGame = `
-            <p id="javascript-magic" onclick="clearTable()">${game.title}</p>
+            <p id="javascript-magic" onclick="closePopUpMenu()">${game.title}</p>
             <p id="javascript-desc">
                 <img class="game-image-popup" src='${game.image}'>
                 <div class="info-container">
