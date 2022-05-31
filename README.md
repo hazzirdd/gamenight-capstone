@@ -1,2 +1,18 @@
 # GameNight
-##### Inspired by traumatic events of hualing stacks of boardgames to friends and family homes to only play one or two of them. That will happen, no more! Browse through the collection of boardgames adding your favorites to the table. Then the host will know what to prepare, or what to bring. Game on!
+##### Inspired by traumatic events of hualing stacks of boardgames to friends and family homes only to play one or two of them. GameNight is a fullstack web app designed to help a party host plan out the boardgames for the group before guests arrive. The host, or guests, can access the hosts database of games and select what they want to play! Now the friend with all the games knows what to bring, or the host knows what to pull out for when the party arrives. Games can be added and removed from the virtual table, requested and sorted in a list by multiple categories.
+![home-screenshot](https://i.pinimg.com/564x/54/1e/25/541e25daf9f33aab1486f0d92f2d648e.jpg "Table Top View")
+![list-screenshot](https://i.pinimg.com/originals/a0/d5/5d/a0d55d44e7760372ea92e625a0509942.jpg "Game List View")
+
+### Technologies
+-JavaScript
+-Express
+-postgreSQL / Sequelize
+-JSON
+-HTML
+-CSS
+
+### Features
+##### Using the app is very simple and satisfying. At the end of the game list is a large plus sign image with a black border. That is what you'll use to add your games to the database for your friends and family to see. Click on any game to pull up information and to add it to the table. When board games are added to teh table, they can be removed easily by the "x" in the top left of each image, or the clear table button. 
+##### Game expansions can be added the same way, but less information is needed.
+##### At the top of the game list their are options for sorting and searching! As your game list grows these can come in handy for you and your guests.
+##### The bottom of the page shows has a drop down menu for game requests! Your party members can request games from you here that they would like to see in the list. All that is required to add a game is a name and game title.
