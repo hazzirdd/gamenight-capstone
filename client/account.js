@@ -21,7 +21,6 @@ const loginCheck = () => {
                 console.log(`User name matches! login = ${login}`)
                 window.location.replace('game-night.html')
             } 
-            
         })
     })
     .catch((err) => {
@@ -42,6 +41,12 @@ const loginCheck = () => {
 const createUser = () => {
     let enteredUsername = usernameText.value
     let enteredPassword = passwordText.value
+
+    if (enteredUsername === null || enteredPassword === null) {
+        return alert('You must enter both a username and password')
+    } else if (enteredUsername.length < 3 || enteredPassword.length < 3) {
+        return alert('Both Username and Password must be at least 3 characters long')
+    }
     
     axios.get('/api/users')
     .then((res) => {

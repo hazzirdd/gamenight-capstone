@@ -86,7 +86,7 @@ const displayAdderEx = () => {
         res.data.forEach(elem => {
             let gameCard = `
             <div class="game-card" class="game-card-grid">
-                <img onclick="openPopupMenuAddGameEx()" class="expansion-image" src='${elem.image}' alt="adderImage">
+                <img onclick="openPopupMenuAddGameEx()" class="game-image-add" src='${elem.image}' alt="adderImage">
                 <div class="game-info-box"></div>
             </div>
             `
@@ -116,6 +116,7 @@ const sortBy = () => {
                         
                         boardgameList.innerHTML += gameCard
                     })
+        displayAdder();
         })
     } else if (gameSort.value === 'genre') {
         axios.get(`/api/sortbygenre`)
@@ -131,6 +132,8 @@ const sortBy = () => {
                         
                         boardgameList.innerHTML += gameCard
                     })
+        displayAdder();
+
         })
     } else if (gameSort.value === 'publisher') {
         axios.get(`/api/sortbypublisher`)
@@ -146,6 +149,7 @@ const sortBy = () => {
                         
                         boardgameList.innerHTML += gameCard
                     })
+        displayAdder();
         })
     } else if (gameSort.value === 'year') {
         axios.get(`/api/sortbyyear`)
@@ -161,6 +165,7 @@ const sortBy = () => {
                         
                         boardgameList.innerHTML += gameCard
                     })
+        displayAdder();
         })
     } else if (gameSort.value === 'haydens-rank') {
         axios.get(`/api/sortbyhayden`)
@@ -176,6 +181,7 @@ const sortBy = () => {
                         
                         boardgameList.innerHTML += gameCard
                     })
+        displayAdder();
         })
     }
 }
