@@ -20,7 +20,6 @@ const baseURL = `/api/boardgames`
 const getBoardgames = () => {
     axios.get(`/api/boardgames`)
     .then(res => {
-        // console.log(res.data)
         addGameToTable(res.data)
     })
     .catch(err => {
@@ -41,8 +40,6 @@ const displayGames = () => {
                     <div class="game-info-box"></div>
             </div>
                     `
-            //Took out this button, got annoying
-            // <button onclick="openPopupMenu(${game.boardgame_id})" class="game-image-button">${game.title}</button>
                     
             boardgameList.innerHTML += gameCard
         })
@@ -186,7 +183,7 @@ const openPopupMenu = (id) => {
         res.data.forEach(game => {
 
             let expandedGame = `
-            <p id="javascript-magic" onclick="closePopUpMenu()">${game.title}</p>
+            <p id="javascript-magic" onclick="closePopupMenu()">${game.title}</p>
             <p id="javascript-desc">
                 <img class="game-image-popup" src='${game.image}'>
                 <div class="info-container">
@@ -235,7 +232,7 @@ const openPopupMenuEx = (id) => {
         res.data.forEach(game => {
 
             let expandedGame = `
-            <p id="javascript-magic" onclick="closePopUpMenu()">${game.expansion_title}</p>
+            <p id="javascript-magic" onclick="closePopupMenu()">${game.expansion_title}</p>
             <div id="javascript-desc">
                 <img class="game-image-popup" src='${game.expansion_image}'>
                 <div class="info-container-ex">
@@ -328,11 +325,6 @@ const addPackToTable = (id1, id2) => {
                 
             })
             console.log(finalBodyObj)
-            
-            // axios.post(`/api/getallgames`, finalBodyObj)
-            // .then(res => {
-                
-            // })
         })
     })
     
@@ -477,7 +469,6 @@ const displayRequests = () => {
     axios.get(`/api/request`)
     .then((res) => {
         res.data.forEach((request) => {
-            // gameRequestContainer.innerHTML = ''
 
             requestCard = `
             <p>
