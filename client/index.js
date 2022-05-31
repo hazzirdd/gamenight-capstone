@@ -54,7 +54,39 @@ const displayExpansions = () => {
         res.data.forEach(expansion => {
             let gameCard = `
             <div class="game-card" class="game-card-grid">
-                <img onclick="openPopupMenuEx(${expansion.expansion_id})" class="expansion-image" src='${expansion.expansion_image}' alt="${expansion.expansion_title}">
+                <img onclick="openPopupMenuEx(${expansion.expansion_id})" class="expansion-image" src='${expansion.expansion_image}' alt="${expansion.expansion_title}" title="Add Game">
+                <div class="game-info-box"></div>
+            </div>
+            `
+
+            expansionList.innerHTML += gameCard
+        })
+    })
+}
+
+const displayAdder = () => {
+    axios.get(`/api/boardgameadder`)
+    .then(res => {
+        res.data.forEach(elem => {
+            let gameCard = `
+            <div class="game-card" class="game-card-grid">
+                <img onclick="openPopupMenuAddGame()" class="game-image-add" src='${elem.image}' alt="adderImage">
+                <div class="game-info-box"></div>
+            </div>
+            `
+
+            boardgameList.innerHTML += gameCard
+        })
+    })
+}
+
+const displayAdderEx = () => {
+    axios.get(`/api/boardgameadder`)
+    .then(res => {
+        res.data.forEach(elem => {
+            let gameCard = `
+            <div class="game-card" class="game-card-grid">
+                <img onclick="openPopupMenuAddGameEx()" class="expansion-image" src='${elem.image}' alt="adderImage">
                 <div class="game-info-box"></div>
             </div>
             `
@@ -253,6 +285,114 @@ const openPopupMenuEx = (id) => {
     })
 }
 
+const openPopupMenuAddGame = () => {
+    
+    let expandedGame = `
+    <p id="javascript-magic" onclick="closePopupMenu()">Add A Game</p>
+    <div id="javascript-desc">
+        <div class="info-container-add">
+
+        <form>
+        <input type="text" placeholder="game title" class="add-title" id="game-sort">
+        <input type="text" placeholder="minimum players" class="add-min-players" id="game-sort">
+        <input type="text" placeholder="maximum players" class="add-max-players" id="game-sort">
+        <input type="text" placeholder="game time average" class="add-time" id="game-sort">
+        <input type="text" placeholder="game genre" class="add-genre" id="game-sort">
+        <input type="text" placeholder="release year" class="add-year" id="game-sort">
+        <input type="text" placeholder="game image" class="add-image" id="game-sort">
+        <input type="text" placeholder="publisher" class="add-publisher" id="game-sort"><br>
+        <button onclick="addNewGame()" type="button" class="add-game-btn" id="sort-submit-btn">Add</button>
+        </form>
+
+        </div>
+
+    </div>
+    <div id="close-popup-div" title="Close Menu" onclick="closePopupMenu()">
+    <p>X</p>
+    </div>`
+    
+    popupDiv.style.display = "block"
+    popupMainDiv.innerHTML += expandedGame
+}
+
+const openPopupMenuAddGameEx = () => {
+    
+    let expandedGame = `
+    <p id="javascript-magic" onclick="closePopupMenu()">Add A Game</p>
+    <div id="javascript-desc">
+        <div class="info-container-add">
+
+        <form>
+        <input type="text" placeholder="boardgame id" class="add-boardgame-id" id="game-sort">
+        <input type="text" placeholder="expansion title" class="add-ex-title" id="game-sort">
+        <input type="text" placeholder="players added" class="add-ex-players" id="game-sort">
+        <input type="text" placeholder="expansion image" class="add-ex-image" id="game-sort"><br>
+        <button onclick="addNewExpansion()" type="button" class="add-game-btn" id="sort-submit-btn">Add</button>
+        </form>
+
+        </div>
+
+    </div>
+    <div id="close-popup-div" title="Close Menu" onclick="closePopupMenu()">
+    <p>X</p>
+    </div>`
+    
+    popupDiv.style.display = "block"
+    popupMainDiv.innerHTML += expandedGame
+}
+
+const addNewGame = () => {
+    const newTitle = document.querySelector('.add-title')
+    const newMin = document.querySelector('.add-min-players')
+    const newMax = document.querySelector('.add-max-players')
+    const newTime = document.querySelector('.add-time')
+    const newGenre = document.querySelector('.add-genre')
+    const newYear = document.querySelector('.add-year')
+    const newImage = document.querySelector('.add-image')
+    const newPublisher = document.querySelector('.add-publisher')
+
+    bodyObj = {
+        title: newTitle.value,
+        playersMin: newMin.value,
+        playersMax: newMax.value,
+        time: newTime.value,
+        genre: newGenre.value,
+        year: newYear.value,
+        image: newImage.value,
+        publisher: newPublisher.value,
+    }
+
+    axios.post(`/api/addnewgame`, bodyObj)
+    .then(res => {
+        document.location.reload(true);
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+}
+
+const addNewExpansion = () => {
+    const newId = document.querySelector('.add-boardgame-id')
+    const newTitle = document.querySelector('.add-ex-title')
+    const newPlayers = document.querySelector('.add-ex-players')
+    const newImage = document.querySelector('.add-ex-image')
+
+    bodyObj = {
+        boardgame_id: newId.value,
+        title: newTitle.value,
+        playersAdded: newPlayers.value,
+        image: newImage.value,
+    }
+
+    axios.post(`/api/addnewex`, bodyObj)
+    .then(res => {
+        document.location.reload(true);
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+}
+
 let tableFull = false
 
 const addToTable = (id) => {
@@ -407,7 +547,9 @@ const removeTableGame = (id) => {
 }
 
 const closePopupMenu = () => {
-    popupDiv.style.display = "none"
+    // popupDiv.style.display = "none"
+    document.location.reload(true);
+
 }
 
 
@@ -520,6 +662,8 @@ displayGames();
 displayTableGames();
 displayExpansions();
 displayRequests();
+displayAdder();
+displayAdderEx();
 
 sortSubmitBtn.addEventListener('click', sortBy);
 clearTableButton.addEventListener('click', clearTable);

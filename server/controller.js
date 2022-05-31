@@ -31,6 +31,49 @@ module.exports = {
         })
     },
 
+    getBoardgameAdder: (req, res) => {
+        sequelize.query(`
+        SELECT * FROM boardgames
+        WHERE template=true
+        `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0]);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    },
+
+    addNewGame: (req, res) => {
+        const {title, playersMin, playersMax, time, genre, year, image, publisher} = req.body
+
+        sequelize.query(`
+        INSERT INTO boardgames(title, players_min, players_max, time, genre, year, image, publisher)
+        VALUES ('${title}', ${playersMin}, ${playersMax}, '${time}', '${genre}', ${year}, '${image}', '${publisher}')
+        `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0]);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    },
+
+    addNewEx: (req, res) => {
+        const {boardgame_id, title, playersAdded, image} = req.body
+
+        sequelize.query(`
+        INSERT INTO expansions(boardgame_id, expansion_title, players_added, expansion_image)
+        VALUES(${boardgame_id}, '${title}', ${playersAdded}, '${image}')
+        `)
+        .then((dbRes) => {
+            res.status(200).send(dbRes[0]);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    },
+
     createPopUp: (req, res) => {
         const {id} = req.params
 
@@ -64,6 +107,7 @@ module.exports = {
     sortByTitle: (req, res) => {
         sequelize.query(`
         SELECT * FROM boardgames
+        WHERE template IS NULL
         ORDER BY title
         `)
         .then((dbRes) => {
@@ -77,6 +121,7 @@ module.exports = {
     sortByGenre: (req, res) => {
         sequelize.query(`
         SELECT * FROM boardgames
+        WHERE template IS NULL
         ORDER BY genre
         `)
         .then((dbRes) => {
@@ -90,6 +135,7 @@ module.exports = {
     sortByPublisher: (req, res) => {
         sequelize.query(`
         SELECT * FROM boardgames
+        WHERE template IS NULL
         ORDER BY publisher
         `)
         .then((dbRes) => {
@@ -103,6 +149,7 @@ module.exports = {
     sortByYear: (req, res) => {
         sequelize.query(`
         SELECT * FROM boardgames
+        WHERE template IS NULL
         ORDER BY year DESC
         `)
         .then((dbRes) => {
@@ -116,6 +163,7 @@ module.exports = {
     sortByHayden: (req, res) => {
         sequelize.query(`
         SELECT * FROM boardgames
+        WHERE template IS NULL
         ORDER BY haydens_rank ASC
         `)
         .then((dbRes) => {
@@ -127,7 +175,6 @@ module.exports = {
     },
 
     addToTable: (req, res) => {
-        // console.log(req.body)
         const {id, image} = req.body
 
         sequelize.query(`
