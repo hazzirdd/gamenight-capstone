@@ -20,6 +20,7 @@ module.exports = {
         // console.log(req.params)
         sequelize.query(`
         SELECT * FROM boardgames
+        WHERE template IS NULL
         ORDER BY haydens_rank ASC
         `)
         .then((dbRes) => {
