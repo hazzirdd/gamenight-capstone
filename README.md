@@ -20,4 +20,4 @@
 ##### The bottom of the page has a drop down menu for game requests! Your party members can request games from you here that they would like to see in the list. All that is required to add a game is a name and game title.
 
 ### Created By:
-#### Hayden Sweet, a software engineer from Salt Lake, Utah
+### Hayden Sweet, a software engineer from Salt Lake, Utah
