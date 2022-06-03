@@ -278,6 +278,7 @@ html {
     display: flex;
     padding: 20px;
     background-color: rgba(124, 124, 124, 0.3);
+    border-radius: 4px;
 }
 
 #search-bar {
@@ -855,6 +856,15 @@ html {
     padding: 60px;
     border: 3px solid black;
 }
+@media (max-width:700px) {
+    .about-text {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        width: 306px;
+        font-size: 20px;
+        padding: 16px;
+        border: 3px solid black;
+    }
+}
 
 .about-graphic-container {
 	display: flex;
@@ -868,6 +878,12 @@ html {
 .about-graphic {
     width: 45vw;
     border: 3px solid black;
+}
+@media (max-width: 700px) {
+    .about-graphic {
+        width:90vw;
+        border: 3px solid black;
+    }
 }
 
 .underconstruction-graphic-container {
