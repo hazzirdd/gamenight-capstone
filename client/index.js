@@ -668,8 +668,9 @@ displayGames();
 displayTableGames();
 displayExpansions();
 displayRequests();
-displayAdder();
-displayAdderEx();
+
+setTimeout(() => { displayAdder(); }, 1500);
+setTimeout(() => { displayAdderEx(); }, 2000);
 
 sortSubmitBtn.addEventListener('click', sortBy);
 clearTableButton.addEventListener('click', clearTable);
