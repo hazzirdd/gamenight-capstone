@@ -141,6 +141,21 @@ html {
     justify-content: center;
     box-shadow: 11px 6px rgb(39, 21, 1);
 }
+@media (max-width:700px) {
+    #tabletop-table-image {
+    display: grid;
+    grid-template-columns: 27vw 27vw 27vw;
+    grid-template-rows: 2in;
+    position: absolute;
+    width: 90vw;
+    height: 4.1in;
+    background-image: url(tabletop.jpg);
+    background-position: center;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 11px 6px rgb(39 21 1);
+    }
+}
 
 /* IPHONE */
 /* #tabletop-table-image {
@@ -166,18 +181,19 @@ html {
     object-fit:fill;
     box-shadow: 6px 11px rgb(19, 19, 19);
 }
+@media (max-width: 700px) {
+    .table-image {
+        display: block;
+        width: 25vw;
+        max-width: 200px;
+        max-height: 200px;
+        height: 25vw;
+        border-radius: 5px;
+        object-fit: fill;
+        box-shadow: 6px 11px rgb(19 19 19);
+    }
+}
 
-/* IPHONE */
-/* .table-image {
-    display: block;
-    width: 25vw;
-    max-width: 200px;
-    max-height: 200px;
-    height: 25vw;
-    border-radius: 5px;
-    object-fit: fill;
-    box-shadow: 6px 11px rgb(19 19 19);
-} */
 
 
 
@@ -235,6 +251,20 @@ html {
     margin-right: 39%;
     padding: 9px;
     border-radius: 4px;
+}
+@media (max-width: 700px) {
+    .orginization-tools {
+        font-size: 20px;
+        background-color: rgba(124, 124, 124, 0.3);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 0.3in;
+        margin-left: 47px;
+        margin-right: 47px;
+        padding: 9px;
+        border-radius: 4px;
+    }
 }
 
 .search-bar-container-container {
@@ -410,20 +440,21 @@ html {
     margin-top: -250px;
     z-index: 4;
 }
-
-/* IPHONE */
-/* #popup-main-div {
-    position: fixed;
-    width: 95vw;
-    max-width: 667px;
-    height: 80vh;
-    border: 2px solid black;
-    border-radius: 5px;
-    background-image: url(WoodBackground.jpeg);
-    right: 25%;
-    top: 15%;
-    z-index: 4;
-} */
+@media (max-width:700px) {
+    #popup-main-div {
+        position: fixed;
+        width: 386px;
+        height: 550px;
+        border: 2px solid black;
+        border-radius: 5px;
+        background-image: url(https://media.istockphoto.com/photos/dark-green-wool-velvet-texture-background-picture-id1153876379?k=20&m=1153876379&s=612x612&w=0&h=oRz6uBQB9aiuYvosgnIVEaht1he0rlWqSVG06G0Rr-U=);
+        left: 402px;
+        margin-left: -400px;
+        top: 50%;
+        margin-top: -250px;
+        z-index: 4;
+    }
+}
 
 #close-popup-div {
     position: absolute;
@@ -484,17 +515,21 @@ html {
     box-shadow: 6px 11px rgb(19, 19, 19);
     border: 2px solid black;
 }
+@media (max-width: 700px) {
+    .game-image-popup {
+        display: block;
+        left: 18px;
+        top: 94px;
+        width: 220px;
+        height: 220px;
+        /* margin-left: 60px; */
+        object-fit: fill;
+        box-shadow: 6px 11px rgb(19 19 19);
+        border: 2px solid black;
+        position: absolute;
+    }
+}
 
-/* IPHONE */
-/* .game-image-popup {
-    display: block;
-    left: 0px;
-    top: 0px;
-    width: 55vw;
-    max-width: 255px;
-    margin-left: 60px;
-    object-fit: scale-down;
-} */
 
 .expansions-in-popup-container {
     height: 1in;
@@ -510,7 +545,11 @@ html {
     position: relative;
     object-fit: fill;
     border: 5px solid rgba(255, 255, 255, 0.3);
-    /* transition: 4s; */
+}
+@media (max-width: 700px) {
+    .expansions-in-popup {
+        display: none;
+    }
 }
 
 .expansions-in-popup:hover {
@@ -520,7 +559,6 @@ html {
     z-index:6;
 }
 
-/* ORIGINAL */
 .info-container {
     display: flex;
     flex-direction: column;
@@ -536,6 +574,24 @@ html {
     width: 3in;
     text-align: center;
     border: 1px solid black;
+}
+@media (max-width: 700px) {
+    .info-container {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        left: 36px;
+        bottom: -200px;
+        font-size: 25px;
+        font-weight: bold;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: rgba(255, 255, 255, 0.3);
+        width: 3in;
+        text-align: center;
+        border: 1px solid black;
+    }
 }
 
 .info-container-ex {
@@ -554,7 +610,24 @@ html {
     text-align: center;
     border: 1px solid black;
 }
-
+@media (max-width: 700px) {
+    .info-container-ex {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        left: 39px;
+        bottom: -230px;
+        font-size: 25px;
+        font-weight: bold;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: rgba(255, 255, 255, 0.3);
+        width: 3in;
+        text-align: center;
+        border: 1px solid black;
+    }
+}
 .info-container-add {
     display: flex;
     flex-direction: column;
@@ -591,6 +664,14 @@ html {
     left: 62%;
     bottom: 53%;
 }
+@media (max-width: 700px) {
+    .add-to-table-button-container {
+        display: flex;
+        position: absolute;
+        left: 134px;
+        bottom: 15px;
+    }
+}
 
 .add-to-table-button {
     background-color:rgb(107, 180, 223);
@@ -608,6 +689,14 @@ html {
     position: absolute;
     left: 62%;
     bottom: 53%;
+}
+@media (max-width: 700px) {
+    .add-to-table-button-container-ex {
+        display: flex;
+        position: absolute;
+        left: 134px;
+        bottom: 15px;
+    }
 }
 
 .add-to-table-button:hover {
